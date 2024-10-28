@@ -2,14 +2,14 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] text-white">
+    <div className="relative grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-4 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] text-white">
       <Image
         className="absolute object-cover"
         src="/buildings.jpeg"
         alt="Vercel logomark"
         fill
       />
-      <div className="absolute w-full h-full bg-opacity-75 z-0 bg-black"></div>
+      <div className="absolute w-full h-full bg-opacity-75 z-1 bg-black"></div>
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start z-10">
         <h1 className="text-4xl animate-pulse">Coming Soon...</h1>
         <h1>Infinite Group of Companies</h1>
@@ -46,8 +46,23 @@ export default function Home() {
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center z-10">
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="tel:+971564422147"
+          className="flex text-sm md:text-base items-center gap-2 hover:underline hover:underline-offset-4"
+          href="tel:971503397437"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/file.svg"
+            alt="File icon"
+            width={16}
+            height={16}
+          />
+          +971 50 339 7437
+        </a>
+        <a
+          className="flex text-sm md:text-base items-center gap-2 hover:underline hover:underline-offset-4"
+          href="tel:971564422147"
           target="_blank"
           rel="noopener noreferrer"
         >
