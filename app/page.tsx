@@ -9,9 +9,9 @@ export default function Home() {
         alt="Vercel logomark"
         fill
       />
-      <div className="absolute w-[100vw] h-[110vh] bg-opacity-75 z-0 bg-black"></div>
+      <div className="absolute w-full h-full bg-opacity-75 z-0 bg-black"></div>
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start z-10">
-        <h1 className="text-4xl animate-pulse">Comming Soon...</h1>
+        <h1 className="text-4xl animate-pulse">Coming Soon...</h1>
         <h1>Infinite Group of Companies</h1>
 
         <p className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
