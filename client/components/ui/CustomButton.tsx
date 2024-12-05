@@ -43,7 +43,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   return (
     <button
       onClick={handleClick}
-      className={`flex w-fit items-center rounded-full text-primary100 ${
+      className={`flex w-fit h-fit items-center rounded-full text-primary100 ${
         type === "primary"
           ? "bg-gradient-to-r from-primary100 via-primary300 to-primary200"
           : "bg-gradient-to-r from-[#D4B449] via-[#F1DB91] to-[#B99C3C]"
