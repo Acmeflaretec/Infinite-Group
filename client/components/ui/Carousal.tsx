@@ -8,19 +8,48 @@ import { Icons } from "../common/Icons";
 interface CarousalProps {
   breakpoints?: { sm: number; md: number; lg: number };
   children: React.ReactNode;
+  dark?: boolean;
 }
-const Carousel: React.FC<CarousalProps> = ({ breakpoints, children }) => {
+const Carousel: React.FC<CarousalProps> = ({
+  breakpoints,
+  dark = false,
+  children,
+}) => {
   const sm = breakpoints?.sm ?? 1;
   const md = breakpoints?.md ?? 2;
   const lg = breakpoints?.lg ?? 3;
   return (
     <div className="relative w-full">
       <div className="absolute top-4 lg:top-0 right-12 lg:right-20 z-10 flex gap-2">
-        <button className="swiper-button-prev group !p-2 flex justify-center items-center border border-solid border-white border-opacity-10 !w-10 !h-10 transition-all duration-500 rounded-full hover:bg-white">
-          <Icons.rightArrow className="text-white group-hover:text-white" />
+        <button
+          className={`swiper-button-next group !p-2 flex justify-center items-center border border-solid !w-10 !h-10 transition-all duration-500 rounded-full ${
+            dark
+              ? "border-black border-opacity-20"
+              : "border-white border-opacity-10"
+          }`}
+        >
+          <Icons.leftArrow
+            className={`${
+              dark
+                ? "text-black group-hover:text-opacity-50"
+                : "text-white group-hover:text-opacity-50"
+            }`}
+          />
         </button>
-        <button className="swiper-button-next group !p-2 flex justify-center items-center border border-solid border-white border-opacity-10 !w-10 !h-10 transition-all duration-500 rounded-full hover:bg-white">
-          <Icons.leftArrow className="text-white group-hover:text-white" />
+        <button
+          className={`swiper-button-prev group !p-2 flex justify-center items-center border border-solid !w-10 !h-10 transition-all duration-500 rounded-full ${
+            dark
+              ? "border-black border-opacity-20"
+              : "border-white border-opacity-10"
+          }`}
+        >
+          <Icons.rightArrow
+            className={`${
+              dark
+                ? "text-black group-hover:text-opacity-50"
+                : "text-white group-hover:text-opacity-50"
+            }`}
+          />
         </button>
       </div>
       <div className="pt-16">

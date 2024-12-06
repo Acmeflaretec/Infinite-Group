@@ -11,7 +11,8 @@ export const locationData: LocationData[] = [
   {
     title: "United Arab Emirites",
     subtitle: "Head Quaters",
-    helpertext: "location",
+    helpertext:
+      "P. O. Box : 118467  105-9, 1st Floor, Al Fajjer Complex, Umm Hurair Road, Oud Metha , Dubai -  U.A.E.",
     icon: "globe.svg",
     cover: "dubai.png",
     href: "/",
@@ -19,7 +20,8 @@ export const locationData: LocationData[] = [
   {
     title: "Qatar",
     subtitle: "Qatar",
-    helpertext: "location",
+    helpertext:
+      "Icono View Building  C Ring Road, Building No.  46 Street 997. Zone 25,  Doha , Qatar",
     icon: "globe.svg",
     cover: "qatar.png",
     href: "/",
@@ -27,7 +29,8 @@ export const locationData: LocationData[] = [
   {
     title: "India",
     subtitle: "India",
-    helpertext: "Competitors Research",
+    helpertext:
+      "Icono View Building  C Ring Road, Building No.  46 Street 997. Zone 25, mumbai , INDIA",
     icon: "globe.svg",
     cover: "india.png",
     href: "/",
