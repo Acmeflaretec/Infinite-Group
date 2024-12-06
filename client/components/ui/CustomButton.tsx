@@ -1,3 +1,4 @@
+"use client"
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -46,7 +47,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       className={`flex w-fit h-fit items-center rounded-full text-primary100 ${
         type === "primary"
           ? "bg-gradient-to-r from-primary100 via-primary300 to-primary200"
-          : "bg-gradient-to-r from-[#D4B449] via-[#F1DB91] to-[#B99C3C]"
+          : "bg-gradient-to-r from-[#D4B449] via-[#F1DB91] to-[#B99C3C] drop-shadow-2xl"
       } ${pointer ? "p-2" : "px-3 py-2"}`}
     >
       <p
