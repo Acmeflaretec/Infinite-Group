@@ -5,8 +5,8 @@ import Footer from "@/components/common/Footer";
 import { Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google";
 
 export const metadata: Metadata = {
-  title: "Infinity Group",
-  description: "Infinity Group of Companies",
+  title: "INFINITE GROUP",
+  description: "Infinite Group of Companies",
 };
 
 const bricolage = Bricolage_Grotesque({

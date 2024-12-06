@@ -56,8 +56,8 @@ const CompanyVision: React.FC = () => {
           </motion.div>
         </AnimatePresence>
       </div>
-      <div className="h-full w-full lg:w-1/2 flex flex-col gap-4 md:gap-8 px-6 lg:p-8 pb-4 justify-between items-start">
-        <div className="flex flex-col gap-4 md:gap-6 ">
+      <div className="relative h-full w-full lg:w-1/2 flex flex-col gap-4 md:gap-8 px-6 lg:p-8 pb-4 justify-between items-start overflow-hidden">
+        <div className="flex flex-col gap-4 md:gap-6">
           <AnimatePresence mode="wait">
             <motion.h1
               key={data[index]?.cover}

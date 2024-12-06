@@ -10,7 +10,7 @@ import VideoSection from "@/components/home/VideoSection";
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <Landing />
       <Marquee />
       <About />
@@ -19,6 +19,6 @@ export default function Home() {
       <Companies />
       <Testimonials />
       <VideoSection />
-    </div>
+    </main>
   );
 }

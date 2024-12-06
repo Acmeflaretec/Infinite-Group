@@ -1,7 +1,7 @@
 import React from "react";
 import { Icons } from "../common/Icons";
 
-const QuickApplyForm = () => {
+const QuickApplyForm: React.FC = () => {
   return (
     <div className="p-2 md:p-8 flex flex-col gap-5">
       <form className="p-4 md:p-5">
