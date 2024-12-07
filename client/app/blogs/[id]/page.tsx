@@ -1,25 +1,35 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import blogData from "@/data/blogData";
 import { Icons } from "@/components/common/Icons";
 
-interface BlogProps {
-  params: {
+interface Props {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
-const Blog: React.FC<BlogProps> = ({ params }) => {
-  const data = blogData[parseInt(params.id) - 1];
-  const [loading, setLoading] = useState(true);
+const Blog = ({ params }: Props) => {
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
+  const [resolvedParams, setResolvedParams] = useState<{ id: string } | null>(
+    null
+  );
+
+  useEffect(() => {
+    params.then((p) => setResolvedParams(p));
+  }, [params]);
+
+  const id = resolvedParams?.id;
 
   const formatDescription = (desc: string | undefined) => {
     return <div dangerouslySetInnerHTML={{ __html: desc || "" }} />;
   };
+
+  const data = id ? blogData[parseInt(id) - 1] : null;
 
   return (
     <section className="pt-[70px] md:pt-[120px] pb-[50px] md:pb-[100px] bg-[#FEFDFD] flex items-center justify-center font-bricolage">
