@@ -1,8 +1,29 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import TestimonialCard from "./TestimonialCard";
+import { Icons } from "../common/Icons";
+import testimonialData from "@/data/testimonialData";
+
+interface TestimonialItem {
+  title: string;
+  description: string;
+  author: string;
+  image: string;
+}
 
 const Testimonials: React.FC = () => {
+  const data: TestimonialItem[] = testimonialData;
+  const [index, setIndex] = useState<number>(0);
+  const totalItems = data?.length || 0;
+  const indices = Array.from({ length: 3 }, (_, i) => (index + i) % totalItems);
+
+  const handleChange = (type: "inc" | "dec") => {
+    if (type === "inc") {
+      setIndex((prev) => (prev < data.length - 1 ? prev + 1 : 0));
+    } else {
+      setIndex((prev) => (prev > 0 ? prev - 1 : data.length - 1));
+    }
+  };
   return (
     <div
       className="xl:min-h-screen flex flex-col gap-12 py-16 px-4 items-center"
@@ -19,29 +40,17 @@ const Testimonials: React.FC = () => {
         Trusted by the world&apos;s fastest growing companies
       </p>
       <div className="flex gap-4 lg:gap-12 items-center">
-        <button className="!p-2 flex justify-center items-center border border-solid border-black border-opacity-10 !w-10 !h-10 transition-all duration-500 rounded-full hover:bg-black">
-          <svg
-            className="h-5 w-5 text-black group-hover:text-black"
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-          >
-            <path
-              d="M10.0002 11.9999L6 7.99971L10.0025 3.99719"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+        <button
+          className="!p-2 z-10 group flex justify-center items-center border border-solid border-black border-opacity-10 !w-10 !h-10 transition-all duration-500 rounded-full hover:bg-black"
+          onClick={() => handleChange("dec")}
+        >
+          <Icons.leftArrow className="group-hover:text-white" />
         </button>
         <div className="flex flex-col lg:flex-row gap-4 md:gap-8 items-center">
           <div className="rounded-full h-40 w-40 lg:h-60 lg:w-60 overflow-hidden">
             <Image
               className="object-cover"
-              src="/assets/dubai.png"
+              src={`/assets/${data?.[index]?.image}`}
               alt="background cover image"
               width={500}
               height={500}
@@ -49,44 +58,31 @@ const Testimonials: React.FC = () => {
           </div>
           <div className="flex flex-col gap-2 lg:gap-6">
             <p className="text-xl lg:text-2xl max-w-2xl font-plus_jakarta font-bold">
-              Expedia Group
+              {data?.[index]?.title}
             </p>
             <p className="text-sm lg:text-lg max-w-md font-plus_jakarta text-justify">
-              Infinite Solutions has been an incredible partner for us. Their
-              team is professional, collaborative, and incredibly skilled. We
-              were able to transform our ideas into functional and visually
-              stunning solutions quickly.
+              {data?.[index]?.description}
             </p>
             <p className="text-xs lg:text-md uppercase text-primary300 font-bold max-w-2xl font-plus_jakarta">
-              Newmen, Expedia Group
+              {data?.[index]?.author}
             </p>
           </div>
         </div>
-        <button className="!p-2 flex justify-center items-center border border-solid border-black border-opacity-10 !w-10 !h-10 transition-all duration-500 rounded-full hover:bg-black">
-          <svg
-            className="h-5 w-5 text-black group-hover:text-black"
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-          >
-            <path
-              d="M5.99984 4.00012L10 8.00029L5.99748 12.0028"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+        <button
+          className="!p-2 z-10 group flex justify-center items-center border border-solid border-black border-opacity-10 !w-10 !h-10 transition-all duration-500 rounded-full hover:bg-black"
+          onClick={() => handleChange("inc")}
+        >
+          <Icons.rightArrow className="group-hover:text-white" />
         </button>
       </div>
-      <div className="flex flex-col lg:flex-row w-full max-w-6xl gap-8 px-4">
-        <TestimonialCard data={{ icon: "india.png", name: "Bussiness" }} />
-        <TestimonialCard
-          data={{ icon: "qatar.png", name: "Interior Design" }}
-        />
-        <TestimonialCard data={{ icon: "dubai.png", name: "Real Estate" }} />
+      <div className="hidden lg:flex flex-col lg:flex-row w-full max-w-6xl gap-8 px-4">
+        {indices.map((index) => (
+          <TestimonialCard
+            key={index}
+            data={{ icon: data[index]?.image, name: data[index]?.author }}
+            onClick={() => setIndex(index)}
+          />
+        ))}
       </div>
     </div>
   );

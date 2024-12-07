@@ -6,11 +6,15 @@ interface TestimonialCardProps {
     icon: string;
     name: string;
   };
+  onClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({ data }) => {
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ data, onClick }) => {
   return (
-    <div className="flex flex-col items-center gap-4 p-4 lg:p-8 bg-white shadow-2xl w-full lg:w-1/3 rounded-md">
+    <div
+      className="flex flex-col items-center cursor-pointer z-10 gap-4 p-4 lg:p-8 bg-white shadow-2xl w-full lg:w-1/3 rounded-md"
+      onClick={onClick}
+    >
       <div className="rounded-full h-32 w-32 overflow-hidden">
         <Image
           className="object-cover"
