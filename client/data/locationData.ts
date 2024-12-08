@@ -29,18 +29,18 @@ export const locationData: LocationData[] = [
   {
     title: "India",
     subtitle: "India",
-    helpertext:
-      "Icono View Building  C Ring Road, Building No.  46 Street 997. Zone 25, mumbai , INDIA",
+    helpertext: "K. C. Building Mavelikkara, Alappuzha, Kerala - India",
     icon: "globe.svg",
     cover: "india.png",
     href: "/",
   },
   {
     title: "Sri lanka",
-    subtitle: "Expanding",
-    helpertext: "Innovative Solutions",
+    subtitle: "Sri Lanka",
+    helpertext:
+      "68 D, Wettawa Kusala Galhenawatta, Raddelugama Siduwa, Srilanka - 11870",
     icon: "globe.svg",
-    cover: "expanding.png",
+    cover: "srilanka.jpg",
     href: "/",
   },
 ];
