@@ -36,7 +36,7 @@ export const locationData: LocationData[] = [
     href: "/",
   },
   {
-    title: "Working On",
+    title: "Sri lanka",
     subtitle: "Expanding",
     helpertext: "Innovative Solutions",
     icon: "globe.svg",
