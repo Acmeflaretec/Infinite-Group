@@ -33,22 +33,23 @@ const ContactSection: React.FC = () => {
             className="flex gap-4 max-w-md text-sm md:text-base z-10"
           >
             <Icons.phone />
-            +971 503397437
+            +971 4 216 2570
           </Link>
           <Link
-            href={"mailto:infinitegroup.companies@gmail.com"}
+            href={"mailto:info@infinite-grp.com"}
             className="flex gap-4 max-w-md text-sm md:text-base z-10"
           >
             <Icons.email />
-            infinitegroup.companies@gmail.com
+            info@infinite-grp.com
           </Link>
           <Link
             href={"#"}
             className="flex gap-4 max-w-md text-sm md:text-base z-10"
           >
             <Icons.location className="sm:w-10 sm:h-10" />
-            P.O.BOX : 118467 105-9 , 1st Floor Al Fajjer Complex Umm Hurair ,
-            Oud Metha , Dubai - UAE
+            P.O.BOX : 118467,
+            <br /> 105-9, 1st Floor Al Fajjer Complex Umm Hurair , Oud Metha ,
+            Dubai - UAE
           </Link>
           <div className="flex gap-8 z-10 py-4">
             <Link href={"#"} target="_blank">

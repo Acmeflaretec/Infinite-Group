@@ -101,7 +101,7 @@ const Header: React.FC = () => {
           <p className="text-xs text-center p-4 text-stone-300">
             © {new Date().getFullYear()}{" "}
             <Link href="/" className="hover:underline">
-              Infinite Group of Companies™
+              Infinite Group of Companies
             </Link>
             . All Rights Reserved.
           </p>

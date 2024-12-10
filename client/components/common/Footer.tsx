@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
           <span className="text-sm sm:text-center">
             © {new Date().getFullYear()}{" "}
             <Link href="/" className="hover:underline">
-              Infinite Group of Companies™
+              Infinite Group of Companies
             </Link>
             . All Rights Reserved.
           </span>

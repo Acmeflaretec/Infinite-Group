@@ -10,7 +10,7 @@ interface CounterProps {
 
 const Counter: React.FC<CounterProps> = ({ count, children }) => {
   const start = useMotionValue(0);
-  const value = useTransform(start, (value) => `${Math.round(value)}`);
+  const value = useTransform(start, (value) => `${Math.round(value)}+`);
   const { ref, isVisible } = useOnScreen({ threshold: 0.5 });
 
   useEffect(() => {

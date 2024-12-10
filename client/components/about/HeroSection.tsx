@@ -31,7 +31,7 @@ const HeroSection: React.FC = () => {
           Infinite Group of Companies operates across UAE, Qatar, India, and Sri
           Lanka, offering innovative solutions in Paint Trading (Protective,
           Marine & Industrial Coatings), floor coating, education, general
-          trading, IT services, advertising, tours and travel, interior design,
+          trading, IT services, advertising, tours and travels, interior design,
           and real estate.
         </p>
         <CustomButton type="secondary" pointer={false} href="/contact">

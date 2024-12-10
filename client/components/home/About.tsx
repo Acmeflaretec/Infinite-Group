@@ -37,10 +37,8 @@ const About: React.FC = () => {
         </div>
       </div>
       <div className="lg:h-1/5 flex justify-around items-center pb-8">
-        <Counter count={5678}>Telephonic talk</Counter>
-        <Counter count={3689}>cases solved</Counter>
-        <Counter count={2465}>growth</Counter>
-        <Counter count={4789}>happy clients</Counter>
+        <Counter count={100}>services</Counter>
+        <Counter count={5000}>happy clients</Counter>
       </div>
     </div>
   );
