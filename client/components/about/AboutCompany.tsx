@@ -18,9 +18,10 @@ const AboutCompany: React.FC = () => {
           </p>
         </div>
         <p className="font-plus_jakarta lg:max-w-md xl:max-w-lg text-sm md:text-base">
-          From small ventures to large enterprises, we craft web solutions that
-          not only fit your requirements but also resonate with your target
-          market.
+          At Infinite Group of Companies, we are a trusted partner delivering
+          tailored solutions with professional expertise. Committed to
+          excellence, we provide unmatched support anytime, anywhere, ensuring
+          seamless experiences for our clients.
         </p>
       </div>
       <div className="flex flex-col md:flex-row gap-8 lg:gap-28">

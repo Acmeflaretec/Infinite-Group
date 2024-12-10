@@ -10,7 +10,7 @@ const VideoSection: React.FC = () => {
       <div className="relative rounded-tr-[6rem] lg:rounded-tr-[12rem] overflow-hidden min-h-[40vh] xl:min-h-[60vh] w-full">
         <video
           className="absolute inset-0 w-full h-full object-cover z-0"
-          src="/assets/Infinite-Group.mp4"
+          src="/assets/about-infinite-group.mp4"
           autoPlay
           loop
           muted

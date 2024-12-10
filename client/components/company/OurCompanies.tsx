@@ -5,7 +5,7 @@ import { companyData } from "@/data/companyData";
 import Image from "next/image";
 import { Icons } from "../common/Icons";
 
-const Logo = () => (
+const Logo: React.FC = () => (
   <div className="hidden col-span-1 lg:flex justify-center items-center">
     <div className="w-full max-w-md opacity-50">
       <Image
@@ -19,7 +19,7 @@ const Logo = () => (
   </div>
 );
 
-const OurCompanies = () => {
+const OurCompanies: React.FC = () => {
   const targetPositions = new Set([2, 6, 10, 14]);
   return (
     <div className="p-4 py-12 lg:p-12">

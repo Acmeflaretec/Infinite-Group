@@ -20,8 +20,8 @@ const config: Config = {
         plus_jakarta: ["var(--plus-jakarta-sans)", "sans-serif"],
       },
       animation: {
-        marquee: "marquee 8s linear infinite",
-        marquee2: "marquee2 8s linear infinite",
+        marquee: "marquee 15s linear infinite",
+        marquee2: "marquee2 15s linear infinite",
       },
       keyframes: {
         marquee: {

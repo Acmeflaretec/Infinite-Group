@@ -19,7 +19,9 @@ const Landing: FC = () => {
         <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-center text-opacity-80 font-plus_jakarta leading-snug md:leading-tight pb-8 tracking-wider max-w-6xl">
           {/* Innovating Solutions Across Multiple Industries */}
         </h1>
-        <CustomButton type="primary">Get Started Now</CustomButton>
+        <CustomButton type="primary" href="/contact">
+          Get Started Now
+        </CustomButton>
       </div>
     </div>
   );

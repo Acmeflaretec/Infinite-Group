@@ -8,16 +8,16 @@ export const aboutCompanyData: DataItem[] = [
   {
     icon: "handshake.png",
     title: "Trusted Partners",
-    desc: "We provide reliable business solutions, tailored to each client's needs.",
+    desc: "Delivering quality solutions and exceeding expectations across diverse industries.",
   },
   {
     icon: "professional.png",
     title: "Professional Expertise",
-    desc: "We provide reliable business solutions, tailored to each client's needs.",
+    desc: "Leveraging multidisciplinary skills to provide innovative and tailored services.",
   },
   {
     icon: "support.png",
     title: "Support Anytime, Anywhere",
-    desc: "We provide reliable business solutions, tailored to each client's needs.",
+    desc: "Ensuring seamless experiences and efficient processes for clients globally.",
   },
 ];

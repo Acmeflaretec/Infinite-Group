@@ -26,7 +26,7 @@ const Companies: React.FC = () => {
         <p className="text-4xl lg:text-5xl text-white font-bricolage font-bold">
           Our Companies
         </p>
-        <CustomButton type="secondary" pointer={false}>
+        <CustomButton type="secondary" pointer={false} href="/contact">
           Explore Now
         </CustomButton>
       </div>

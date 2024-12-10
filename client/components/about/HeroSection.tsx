@@ -34,7 +34,7 @@ const HeroSection: React.FC = () => {
           trading, IT services, advertising, tours and travel, interior design,
           and real estate.
         </p>
-        <CustomButton type="secondary" pointer={false} href="/about">
+        <CustomButton type="secondary" pointer={false} href="/contact">
           Explore now
         </CustomButton>
       </div>
