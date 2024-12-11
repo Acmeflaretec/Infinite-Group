@@ -37,7 +37,7 @@ const GlobalPresence: React.FC = () => {
               globally.
             </p>
           </div>
-          <Carousel breakpoints={{ sm: 1, md: 3, lg: 3 }}>
+          <Carousel>
             {locationData?.map((item, idx) => (
               <SwiperSlide key={idx}>
                 <GlobalPresenceCard data={item} />

@@ -27,12 +27,12 @@ body {
   transition-timing-function: linear !important;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  position: relative;
+.multiple-slide-carousel {
+  --swiper-navigation-color: #fff;
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  display: none; /* Hide default arrows */
+.multiple-slide-carousel .swiper-button-next,
+.multiple-slide-carousel .swiper-button-prev {
+  top: 50%;
+  transform: translateY(-50%);
 }

@@ -31,7 +31,7 @@ const Companies: React.FC = () => {
         </CustomButton>
       </div>
       <div className="w-full lg:w-3/5 xl:w-2/3 h-full">
-        <Carousel breakpoints={{ sm: 1, md: 2.5, lg: 3.5 }}>
+        <Carousel breakpoints={{ sm: 1, md: 1.5, lg: 2.5 }}>
           {companyData?.map((item, idx) => (
             <SwiperSlide key={idx}>
               <CompanyCard data={item} />

@@ -16,7 +16,7 @@ const HeroSection: React.FC = () => {
       <div className="relative flex-1 min-h-[40vh] rounded-2xl overflow-hidden lg:m-12">
         <video
           className="absolute inset-0 w-full h-full object-cover z-0"
-          src="/assets/Infinite-Group.mp4"
+          src="/assets/Infinite-group-9-16.mp4"
           autoPlay
           loop
           muted

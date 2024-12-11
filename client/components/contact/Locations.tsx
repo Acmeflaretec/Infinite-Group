@@ -20,7 +20,7 @@ const Locations: React.FC = () => {
           />
         </div>
         <div className="w-full p-4 lg:p-8 lg:w-[90%] h-full xl:min-h-[80vh]">
-          <Carousel breakpoints={{ sm: 1, md: 3, lg: 3 }} dark>
+          <Carousel breakpoints={{ sm: 1, md: 2, lg: 3 }} >
             {locationData?.map((item, idx) => (
               <SwiperSlide key={idx}>
                 <LocationCard data={item} />
