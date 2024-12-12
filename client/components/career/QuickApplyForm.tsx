@@ -98,6 +98,7 @@ const QuickApplyForm: React.FC = () => {
               <option value={"12th"}>12th Grade</option>
               <option value={"UG"}>UG (undergraduate)</option>
               <option value={"PG"}>PG (postgraduate)</option>
+              <option value={"Others"}>Others</option>
             </select>
           </div>
           <div className="col-span-2 sm:col-span-1">

@@ -4,6 +4,7 @@ import CompanyCard from "./CompanyCard";
 import { companyData } from "@/data/companyData";
 import Image from "next/image";
 import { Icons } from "../common/Icons";
+import Link from "next/link";
 
 const Logo: React.FC = () => (
   <div className="hidden col-span-1 lg:flex justify-center items-center">
@@ -32,7 +33,11 @@ const OurCompanies: React.FC = () => {
                 <Logo key={`logo-B-${index}`} />
               </>
             )}
-            <div key={`card-${index}`} className="col-span-2">
+            <Link
+              key={`card-${index}`}
+              className="col-span-2"
+              href={data?.href}
+            >
               <p className="flex uppercase gap-2 text-sm py-1">
                 <Icons.handshake className="md:h-6 md:w-6" />
                 {data?.subtitle}
@@ -41,7 +46,7 @@ const OurCompanies: React.FC = () => {
                 {data?.title}
               </p>
               <CompanyCard data={data} />
-            </div>
+            </Link>
           </React.Fragment>
         ))}
       </div>

@@ -47,7 +47,7 @@ const ContactSection: React.FC = () => {
             className="flex gap-4 max-w-md text-sm md:text-base z-10"
           >
             <Icons.location className="sm:w-10 sm:h-10" />
-            P.O.BOX : 118467,
+            P.O. BOX : 118467,
             <br /> 105-9, 1st Floor Al Fajjer Complex Umm Hurair , Oud Metha ,
             Dubai - UAE
           </Link>
@@ -55,11 +55,19 @@ const ContactSection: React.FC = () => {
             <Link href={"#"} target="_blank">
               <Icons.linkedIn />
             </Link>
-            <Link href={"#"} target="_blank">
+            <Link
+              href={
+                "https://www.facebook.com/profile.php?id=61568257455081&mibextid=ZbWKwL"
+              }
+              target="_blank"
+            >
               <Icons.facebook />
             </Link>
             <Link href={"#"} target="_blank">
               <Icons.twitter />
+            </Link>
+            <Link href={"#"} target="_blank">
+              <Icons.instagram />
             </Link>
           </div>
         </div>

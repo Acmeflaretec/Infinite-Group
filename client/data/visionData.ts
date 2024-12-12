@@ -30,7 +30,7 @@ export const visionData: VisionData[] = [
   {
     title: "Our Vision",
     description:
-      "To be a global leader in every sector we operate in, recognized for our commitment to quality, customer satisfaction, and sustainable growth. We are passionate about fostering innovation and embracing new technologies and ideas to stay ahead in a competitive.",
+      "Our vision is to be a global leader in every sector we operate in, recognized for our unwavering commitment to quality, customer satisfaction, and sustainable growth. We are passionate about fostering innovation and embracing new technologies and ideas to stay ahead in a competitive landscape, continuously setting new standards of excellence.",
     cover: "vision.png",
     href: "/",
   },

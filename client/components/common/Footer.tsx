@@ -3,13 +3,14 @@ import { links } from "@/data/footerData";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Icons } from "./Icons";
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-white font-bricolage text-stone-500">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="flex flex-col lg:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0 lg:w-1/4 px-12 max-w-md pb-6">
+          <div className="mb-6 md:mb-0 lg:w-2/5 px-12 max-w-xl pb-6">
             <Link href="/" className="flex flex-col items-center">
               <Image
                 src="/assets/primarylogo.png"
@@ -47,10 +48,15 @@ const Footer: React.FC = () => {
               <p className="font-thin text-sm pb-4">
                 Subscribe to our newsletter to get the latest news and updates.
               </p>
-              <input
-                placeholder="Enter your email"
-                className="border border-stone-300 rounded-2xl text-sm py-2 px-4 w-full"
-              />
+              <div className="flex border border-stone-300 rounded-full text-sm p-1 pl-3 w-full">
+                <input
+                  placeholder="Enter your email"
+                  className="outline-none text-sm px-2 w-full"
+                />
+                <button className="bg-black text-white p-2 rounded-full">
+                  <Icons.rightArrow />
+                </button>
+              </div>
             </div>
           </div>
         </div>

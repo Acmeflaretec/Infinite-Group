@@ -12,8 +12,8 @@ export const links: LinkCategory[] = [
   {
     title: "Company",
     items: [
-      { title: "Who are we", href: "#about" },
-      { title: "Our services", href: "#companies" },
+      { title: "Who we are", href: "/about" },
+      { title: "Our services", href: "/companies" },
       { title: "Our clients", href: "#testimonials" },
       { title: "Contact us", href: "/contact" },
     ],
@@ -27,16 +27,6 @@ export const links: LinkCategory[] = [
       { title: "Blogs", href: "/blogs" },
       { title: "Careers", href: "/career" },
       { title: "Contact us", href: "/contact" },
-    ],
-  },
-  {
-    title: "Customer",
-    items: [
-      { title: "Client support", href: "#" },
-      { title: "Help center", href: "#" },
-      { title: "System status", href: "#" },
-      { title: "Feedback", href: "#" },
-      { title: "Contact us", href: "#" },
     ],
   },
 ];
