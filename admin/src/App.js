@@ -20,23 +20,11 @@ import Footer from "examples/Footer";
 import "assets/css/nucleo-icons.css";
 import "assets/css/nucleo-svg.css";
 import "assets/css/style.css";
-import AddCategory from "pages/Category/AddCategory";
-import EditCategory from "pages/Category/EditCategory";
 import AddCareers from "pages/Careers/AddCareers";
 import EditCareers from "pages/Careers/EditCareers";
-import EditOrder from "pages/Orders/EditOrder";
+import Details from "pages/Applications/Details";
 import Login from "pages/Auth";
-import AddBanner from "pages/Banner/AddBanner";
-import AddBlog from "pages/Blogs/AddBlog";
-import EditBanner from "pages/Banner/EditBanner";
-import EditBlog from "pages/Blogs/EditBlog";
-import AddCoupon from "pages/Coupon/AddCoupon";
-import EditCoupon from "pages/Coupon/EditCoupon";
-// import VariantProduct from "pages/Products/VariantProduct";
-import AddSection from "pages/Sections/AddSection";
-import EditSection from "pages/Sections/EditSection";
-import AddTag from "pages/Tags/AddTag";
-import EditTag from "pages/Tags/EditTag";
+
 
 export default function App() {
   const [controller, dispatch] = useController();
@@ -113,23 +101,10 @@ export default function App() {
               <DashboardNavbar />
               <Routes>
                 {getRoutes(routes)}
-                <Route path="/category/addCategory" element={<AddCategory />} />
-                <Route path="/category/editCategory/:id" element={<EditCategory />} />
                 <Route path="/careers/addCareers" element={<AddCareers />} />
                 <Route path="/careers/editCareers/:id" element={<EditCareers />} />
-                {/* <Route path="/products/variantProduct/:id" element={<VariantProduct />} /> */}
-                <Route path="/orders/editOrder/:id" element={<EditOrder />} />
-                <Route path="/coupon/addCoupon" element={<AddCoupon />} />
-                <Route path="/coupon/editCoupon/:id" element={<EditCoupon />} />
-                <Route path="/tags/addTags" element={<AddTag />} />
-                <Route path="/tags/editTags/:id" element={<EditTag />} />
-                <Route path="/sections/addSection" element={<AddSection />} />
-                <Route path="/sections/editSection/:id" element={<EditSection />} />
-                <Route path="/coupon/addCoupon" element={<AddCoupon />} />
-                <Route path="/coupon/editCoupon/:id" element={<EditCoupon />} />
-                <Route path="/blogs/addBlog" element={<AddBlog />} />
-                <Route path="/blogs/editBlog/:id" element={<EditBlog />} />
-                <Route path="*" element={<Navigate to="/orders" />} />
+                <Route path="/applications/details//:id" element={<Details />} />
+                <Route path="*" element={<Navigate to="/contact" />} />
               </Routes>
               <Footer />
             </DashboardLayout>
@@ -153,26 +128,13 @@ export default function App() {
             <DashboardNavbar />
             <Routes>
               {getRoutes(routes)}
-              <Route path="/category/addCategory" element={<AddCategory />} />
-              <Route path="/category/editCategory/:id" element={<EditCategory />} />
               <Route path="/careers/addCareers" element={<AddCareers />} />
               <Route path="/careers/editCareers/:id" element={<EditCareers />} />
-              {/* <Route path="/products/variantProduct/:id" element={<VariantProduct />} /> */}
-              <Route path="/banners/addBanner" element={<AddBanner />} />
-              <Route path="/orders/editOrder/:id" element={<EditOrder />} />
-              <Route path="/banners/editBanner/:id" element={<EditBanner />} />
-              <Route path="/tags/addTags" element={<AddTag />} />
-              <Route path="/tags/editTags/:id" element={<EditTag />} />
-              <Route path="/sections/addSection" element={<AddSection />} />
-              <Route path="/sections/editSection/:id" element={<EditSection />} />
-              <Route path="/coupon/addCoupon" element={<AddCoupon />} />
-              <Route path="/coupon/editCoupon/:id" element={<EditCoupon />} />
-              <Route path="/blogs/addBlog" element={<AddBlog />} />
-              <Route path="/blogs/editBlog/:id" element={<EditBlog />} />
-              <Route path="*" element={<Navigate to="/orders" />} />
+              <Route path="/applications/details/:id" element={<Details />} />
+              <Route path="*" element={<Navigate to="/contact" />} />
             </Routes>
-            <Footer />
-          </DashboardLayout>
+            <Footer />   
+          </DashboardLayout>   
         </>
       }
     </ThemeProvider>
