@@ -3,46 +3,51 @@ const mongoosePaginate = require('mongoose-paginate-v2');
 
 
 const jobApplicationSchema = new mongoose.Schema({
-  firstName: { 
-    type: String, 
+  firstName: {
+    type: String,
     required: true
-   },
-  middleName: { 
-    type: String 
   },
-  lastName: { 
-    type: String, 
+  middleName: {
+    type: String
+  },
+  lastName: {
+    type: String,
     required: true
-   },
-  email: { 
-    type: String, 
-    required: true, 
+  },
+  email: {
+    type: String,
+    required: true,
     match: /.+\@.+\..+/
-   },
-  linkedInId: { 
-    type: String, 
+  },
+  linkedInId: {
+    type: String,
     required: true
-   },
-  country: { 
-    type: String, 
+  },
+  country: {
+    type: String,
     required: true
-   },
-  highestQualification: { 
-    type: String, 
+  },
+  highestQualification: {
+    type: String,
+    required: true    
+  },
+  contactNumber: {
+    type: String,
     required: true
-   },
-  contactNumber: { 
-    type: String, 
+  },
+  whatsAppNumber: {
+    type: String,
     required: true
-   },
-  whatsAppNumber: { 
-    type: String, 
+  },
+  cv: {
+    type: String,     
     required: true
-   },
-  cv: { 
-    type: String, 
-    required: true
-   }, 
+  },
+  status: {
+    type: String,
+    enum: ['Pending', 'Reviewed', 'Shortlisted', 'Rejected', 'Hired'],
+    default: 'Pending',
+  },
 }, { timestamps: true });
 
 jobApplicationSchema.plugin(mongoosePaginate);

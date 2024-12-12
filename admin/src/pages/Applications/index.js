@@ -1,14 +1,14 @@
 import PageLayout from "layouts/PageLayout";
 import TableData from "./tableData";
 
-function Orders() {
+function Applications() {
   return (
     <PageLayout
-      title={'Orders'}
+      title={'Applications'}
     >
       <TableData />
     </PageLayout>
   );
 }
 
-export default Orders;
+export default Applications;
