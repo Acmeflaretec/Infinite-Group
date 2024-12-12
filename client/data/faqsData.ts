@@ -7,7 +7,7 @@ export const faqsData: FaqItem[] = [
   {
     title: "What services does Infinite Group of Companies offer?",
     content:
-      "Infinite Group of Companies offers a wide range of services, including consulting, IT solutions, digital marketing, event management, real estate, government transactions, and more.",
+      "Infinite Group of Companies offers a wide range of services, including consulting, education, trading, Businessmen Solutions, Advertising and Events, IT Services, Tours and Travels, Interior Designing, Real Estate, and government transactions.",
   },
   {
     title: "How can I contact your team for support or inquiries?",
@@ -17,17 +17,17 @@ export const faqsData: FaqItem[] = [
   {
     title: "Which industries do you serve?",
     content:
-      "We serve a variety of industries, including corporate, industrial, real estate, education, tourism, and more. ",
+      "We serve a variety of industries, including international business, education, business solutions, advertising and events, IT services, tourism and travel, interior designing, real estate, and more.",
   },
   {
     title: "Why should I choose Infinite Group over other companies?",
     content:
-      "With our commitment to quality, innovation, and tailored solutions, we prioritize our clients' success at every step.",
+      "Choosing Infinite Group means access to end-to-end solutions across multiple industries. As a connected group of companies, we offer seamless, tailored services in areas like consulting, IT, real estate, education, and more, ensuring your success at every step with a focus on quality and innovation.",
   },
   {
     title: "Where are your offices located?",
     content:
-      "Our offices are located in the UAE, Qatar, and India, enabling us to provide local support and insights in these regions.",
+      "Our offices are located in the UAE, Qatar, India, and Sri Lanka, enabling us to provide local support and insights in these regions.",
   },
   {
     title: "How experienced is your team?",

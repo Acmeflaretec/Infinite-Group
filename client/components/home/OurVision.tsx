@@ -62,15 +62,6 @@ const OurVision: React.FC = () => {
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </motion.div>
-        <div className="hidden xl:flex flex-col gap-4 w-20 min-h-[40vh] h-full items-center justify-center">
-          <Image
-            src="/assets/graphics.png"
-            width={50}
-            height={50}
-            alt="graphics"
-            className="w-14"
-          />
-        </div>
       </div>
     </div>
   );

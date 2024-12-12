@@ -42,19 +42,19 @@ const Header: React.FC = () => {
 
   return (
     <header className="fixed h-16 top-0 px-4 md:px-8 z-50 font-bricolage bg-white backdrop-blur-lg flex justify-between items-center w-full bg-opacity-65">
-      <div className="flex items-center text-primary100">
+      <Link href={"/"} className="flex items-center text-primary100">
         <Image
           src="/assets/secondarylogo.png"
           alt="logo"
           width={48}
           height={56}
-          className="w-12 h-14"
+          className="w-8 h-14"
         />
         <div className="text-xs flex flex-col justify-center">
           <h1 className="uppercase font-bold">Infinite Group of Companies</h1>
           <p className="text-xs">UAE | QATAR | INDIA | SRILANKA</p>
         </div>
-      </div>
+      </Link>
       <nav className="hidden lg:flex gap-4 font-semibold text-lg text-stone-500">
         {navLinks.slice(0, 5).map(({ path, label }) => (
           <CustomLink key={path} path={path} dark>
@@ -100,7 +100,7 @@ const Header: React.FC = () => {
           </nav>
           <p className="text-xs text-center p-4 text-stone-300">
             © {new Date().getFullYear()}{" "}
-            <Link href="/" className="hover:underline">
+            <Link href="/companies" className="hover:underline">
               Infinite Group of Companies
             </Link>
             . All Rights Reserved.

@@ -20,7 +20,7 @@ const GlobalPresence: React.FC = () => {
             height={500}
           />
         </div>
-        <div className="w-full p-4 lg:p-8 lg:w-[90%] h-full xl:min-h-[80vh]">
+        <div className="w-full p-4 lg:p-12 h-full xl:min-h-[80vh]">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
             <div className="flex flex-col gap-4">
               <CustomButton type="primary" pointer={false}>

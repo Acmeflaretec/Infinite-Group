@@ -9,7 +9,7 @@ const testimonialData: TestimonialItem[] = [
   {
     title: "Pathway Program Success",
     description:
-      "Words can't express how greatfull Iam to Infinite Group's educational services! I have enrolled with the pathway programs from Dubai to the UK and I started to work in Dubai. I find money for my education and living without the help from my parents. I never knew about this type of studies. Infinite and thie team helped me a loy. I suggest you to choose their services. ",
+      "Words can't express how grateful I am to Infinite Group's educational services! I have enrolled with the pathway programs from Dubai to the UK and I started to work in Dubai. I find money for my education and living without the help from my parents. I never knew about this type of studies. Infinite and their team helped me a lot. I suggest you to choose their service. ",
     author: "Pranav",
     image: "Testimonials/pranav.jpg",
   },
@@ -17,13 +17,13 @@ const testimonialData: TestimonialItem[] = [
     title: "Smooth Ticket Booking",
     description:
       "I booked my air tickets through Infinite Group of Companies, and it was an excellent experience from start to finish. The team provided quick options at competitive prices, taking into account my travel preferences and budget. They handled everything smoothly, keeping me updated along the way, which gave me peace of mind. ",
-    author: "athira Hrudhya",
+    author: "Athira Hrudhya",
     image: "Testimonials/athira-hrudhya.jpg",
   },
   {
     title: "Efficient UG Support",
     description:
-      "Good services They helped me to take UG course I got my Bcom certificate with in limited time they made it all happen quickly and efficiently. Really appreciate their support.",
+      "Good services They helped me to take UG course I got my Bcom certificate within limited time they made it all happen quickly and efficiently. Really appreciate their support.",
     author: "Athira Anilkumar",
     image: "Testimonials/athira-anilkumar.jpg",
   },
@@ -44,7 +44,7 @@ const testimonialData: TestimonialItem[] = [
   {
     title: "Fast Certificate Service",
     description:
-      "I had a great experience with Infinite Educational Services. I referred them to a friend and her daughter successfully obtained her certificate through fast track and is now employed as well. Highly recommend their reliable and efficient.",
+      "I had a great experience with Infinite Educational Services. I referred them to a friend and her daughter successfully obtained her certificate through fast track and is now employed as well. Highly recommend their reliable and efficient services.",
     author: "Divya Hrishikesh",
     image: "Testimonials/avatar-female.png",
   },
