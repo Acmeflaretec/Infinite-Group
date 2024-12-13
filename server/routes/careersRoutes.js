@@ -1,13 +1,18 @@
-const { Router } = require('express');
+const { Router } = require("express");
 const router = Router();
-const { addProduct, deleteProduct, getProductById, updateProduct,getAdminProducts
- } = require('../controllers/careersController');    
-const { upload } = require('../middlewares/multer');
+const {
+  addCareer,
+  deleteCareer,
+  getCareerById,
+  updateCareer,
+  getCareers,
+} = require("../controllers/careersController");
+const { upload } = require("../middlewares/multer");
 
-router.post('/', upload.array('images', 10), addProduct);  
-router.get('/adminCareers', getAdminProducts);
-router.delete('/:id',  deleteProduct);
-router.get('/:id', getProductById);
-router.patch('/', upload.array('images', 10), updateProduct);
+router.post("/", upload.array("images", 10), addCareer);
+router.get("/", getCareers);
+router.delete("/:id", deleteCareer);
+router.get("/:id", getCareerById);
+router.patch("/", upload.array("images", 10), updateCareer);
 
 module.exports = router;
