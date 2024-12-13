@@ -1,4 +1,5 @@
 const JobApplication = require('../models/JobApplication');
+const Careers = require('../models/careers');
 const archiver = require('archiver');
 const path = require('path');
 const fs = require('fs');
@@ -9,10 +10,12 @@ const submitJobApplication = async (req, res) => {
   
   const { 
     firstName, middleName, lastName, email, linkedInId, 
-    country, highestQualification, contactNumber, whatsAppNumber 
+    country, highestQualification, contactNumber, whatsAppNumber ,careerId
   } = req.body;
-  console.log('firstName, middleName, lastName, email, linkedInId,country, highestQualification, contactNumber, whatsAppNumber ',firstName, middleName, lastName, email, linkedInId, 
-    country, highestQualification, contactNumber, whatsAppNumber );
+
+  if (!careerId) {
+    return res.status(400).json({ message: 'Career ID is required' });
+  }
 
   if (!req.file) {
     return res.status(400).json({ message: 'CV file is required' });
@@ -36,6 +39,12 @@ const submitJobApplication = async (req, res) => {
       contactNumber,
       whatsAppNumber,
       cv: req.file.path, 
+      careerId
+    });
+
+
+    await Careers.findByIdAndUpdate(careerId, {
+      $push: { applicants: newJobApplication._id }
     });
 
     res.status(201).json({
@@ -50,16 +59,24 @@ const submitJobApplication = async (req, res) => {
 const getApplicants = async (req, res) => {
   console.log('getApplicants');
   
-  const { page = 1, perPage = 10, sortBy = 'createdAt', order = 'desc', search = '' } = req.query;
+  const { page = 1, perPage = 10, sortBy = 'createdAt', order = 'desc', search = '', careerId, qualification, status } = req.query;
+  console.log('careerId',careerId);
+  
   try {
-    const query = search ? { $text: { $search: search } } : {};
+    // const query = search ? { $text: { $search: search } } : {};
+    const query = {
+      ...(search && { firstName: new RegExp(search, 'i') }),
+      ...(careerId && { careerId }),
+      ...(qualification && { highestQualification: new RegExp(qualification, 'i') }),
+      ...(status && { status }),
+    };
     const options = {
       page: parseInt(page),
       limit: parseInt(perPage),
       sort: { [sortBy]: order === 'asc' ? 1 : -1 },
+      populate: 'careerId',
     };
     const result = await JobApplication.paginate(query, options);
-    console.log('result',result);
     res.status(200).json(result);
   } catch (err) {
     res.status(500).json({ message: 'Error fetching applicants', error: err });

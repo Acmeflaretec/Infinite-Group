@@ -34,6 +34,10 @@ const careersSchema = new mongoose.Schema(
     jobRequirements: {
       type: [String],
     },
+    applicants: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'JobApplication'
+      }],
     isAvailable: {
       type: Boolean,
       default: true,

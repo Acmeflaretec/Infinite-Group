@@ -12,10 +12,10 @@ function Author({ id, name, desc }) {
     <Box key={id} display="flex" alignItems="center" px={1} py={0.5}>
       <Box display="flex" flexDirection="column">
         <Typography variant="button" fontWeight="medium">
-          {name?.slice(0, 50)}
+          {name}
         </Typography>
         <Typography variant="caption" color="secondary">
-          {desc?.slice(0, 30)}
+          {desc}
         </Typography>
       </Box>
     </Box>
@@ -41,9 +41,10 @@ const TableData = () => {
 
   const columns = [
     { name: "careers", align: "left" },
-    { name: "status", align: "center" },
+    { name: "no_of_applicants", align: "left" },
     { name: "createdon", align: "center" },
     { name: "Lastupdated", align: "center" },
+    { name: "status", align: "center" },
     { name: "action", align: "center" },
   ];
   console.log("data?.docs12", data?.docs);
@@ -62,6 +63,11 @@ const TableData = () => {
     createdon: (
       <Typography variant="caption" color="secondary" fontWeight="medium">
         {new Date(item?.createdAt).toDateString()}
+      </Typography>
+    ),
+    no_of_applicants: (
+      <Typography variant="caption" color="secondary" fontWeight="medium">
+        {item?.applicants?.length ? item?.applicants?.length : '-'}
       </Typography>
     ),
     Lastupdated: (

@@ -12,8 +12,10 @@ const TableData = () => {
   const [sortBy, setSortBy] = useState('createdAt');
   const [order, setOrder] = useState('desc');
   const [search, setSearch] = useState('');
+  const [status, setStatus] = useState('');
 
-  const { data, isLoading } = useGetUser({ page, perPage, sortBy, order, search });
+
+  const { data, isLoading } = useGetUser({ page, perPage, sortBy, order, search,status });
   const { mutate: updateUserStatus, isLoading: deleting } = useUpdateUserStatus();
 
 
@@ -102,6 +104,19 @@ const TableData = () => {
           size="small"
           style={{ marginLeft: '5px' }}
         />
+        <Select
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+          displayEmpty
+          size="small"
+        >
+          <MenuItem value="">All Status</MenuItem>
+          {['Viewed', 'Not-Viewed'].map(status => (
+            <MenuItem key={status} value={status==='Viewed' ? false : true}>
+              {status}
+            </MenuItem>
+          ))}
+        </Select>
         <Box>
           <Button onClick={() => setOrder(order === 'asc' ? 'desc' : 'asc')}>
             Sort by {sortBy} ({order})

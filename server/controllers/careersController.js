@@ -1,6 +1,9 @@
-const Careers = require("../models/careers");
+const Careers = require('../models/careers')
+const JobApplication = require('../models/JobApplication')
 
-const getCareers = async (req, res) => {
+
+
+const getAdminCareers = async (req, res) => {
   try {
     const {
       page = 1,
@@ -33,19 +36,19 @@ const getCareers = async (req, res) => {
   }
 };
 
-const getCareerById = async (req, res) => {
+
+const getCareersById = async (req, res) => {
   try {
-    const data = await Careers.findOne({ _id: req.params.id });
-    res.status(200).json({ data, message: "Career found successfully" });
+    const data = await Careers.findById(req.params.id).populate('applicants');
+    res.status(200).json({ data, message: 'Career and applicants fetched successfully' });
   } catch (error) {
     console.log(error.message);
-    res
-      .status(400)
-      .json({ message: error?.message ?? "Something went wrong !" });
+    res.status(400).json({ message: error?.message ?? 'Something went wrong!' });
   }
 };
 
-const addCareer = async (req, res) => {
+
+const addCareers = async (req, res) => { 
   try {
     const {
       title,
@@ -81,39 +84,15 @@ const addCareer = async (req, res) => {
   }
 };
 
-const updateCareer = async (req, res) => {
-  try {
-    const {
-      _id,
-      title,
-      isAvailable,
-      location,
-      type,
-      linkedin_url,
-      pay,
-      summary,
-      dutiesAndResponsibilities,
-      workingConditions,
-      jobRequirements,
-    } = req?.body;
 
-    await Careers.updateOne(
-      { _id },
-      {
-        $set: {
-          title,
-          isAvailable,
-          location,
-          type,
-          linkedin_url,
-          pay,
-          summary,
-          dutiesAndResponsibilities,
-          workingConditions,
-          jobRequirements,
-        },
-      }
-    );
+const updateCareers = async (req, res) => { 
+  try {
+    const { _id, name, isAvailable, place,times,summary,dutiesAndResponsibilities,workingConditions,jobRequirements} = req?.body
+
+    
+    await Careers.updateOne({ _id }, {
+      $set: { name, isAvailable, place,times,summary,dutiesAndResponsibilities,workingConditions,jobRequirements }
+    })
 
     res.status(200).json({ message: "Career updated successfully !" });
   } catch (error) {
@@ -122,24 +101,35 @@ const updateCareer = async (req, res) => {
       .status(400)
       .json({ message: error?.message ?? "Something went wrong !" });
   }
-};
+}
 
-const deleteCareer = async (req, res) => {
+const deleteCareers = async (req, res) => {
   try {
+    const career = await Careers.findById(req.params.id);
+    if (!career) {
+      return res.status(404).json({ message: 'Career not found' });
+    }
+    await JobApplication.deleteMany({ careerId: career._id });
     await Careers.deleteOne({ _id: req.params.id });
-    res.status(200).json({ message: "Career deleted successfully" });
+
+    res.status(200).json({ message: 'Career and associated applications deleted successfully' });
   } catch (error) {
     console.log(error.message);
-    res
-      .status(400)
-      .json({ message: error?.message ?? "Something went wrong !" });
+    res.status(400).json({ message: error?.message ?? 'Something went wrong!' });
   }
 };
 
-module.exports = {
-  getCareerById,
-  updateCareer,
-  addCareer,
-  deleteCareer,
-  getCareers,
+const getCareers = async (req, res) => {
+  try {
+    const careers = await Careers.find({});
+    res.status(200).json(careers);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching careers', error });
+  }
 };
+
+
+module.exports = {
+  addCareers, deleteCareers, getCareersById, updateCareers,getAdminCareers,
+  getCareers
+}  

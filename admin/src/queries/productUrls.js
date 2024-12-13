@@ -15,7 +15,7 @@ const getCareers = async ({ page, perPage, sortBy, order, search }) => {
     isAdmin: true,
   }).toString();
 
-  const response = await request(`/careers?${queryParams}`, "GET");
+  const response = await request(`/careers/adminCareers?${queryParams}`, "GET");
   return response;
 };
 
