@@ -3,24 +3,36 @@ const JobApplication = require('../models/JobApplication')
 
 
 
-const getAdminProducts = async (req, res) => {
+const getCareers = async (req, res) => {
   try {
-    const { page = 1, perPage = 10, sortBy = 'createdAt', order = 'desc', search = '' } = req.query;
-    const query = search ? { name: { $regex: search, $options: 'i' } } : {};
+    const {
+      page = 1,
+      perPage = 10,
+      sortBy = "createdAt",
+      order = "desc",
+      search = "",
+      isAdmin = false,
+    } = req.query;
+    const query = search ? { title: { $regex: search, $options: "i" } } : {};
+
+    if (!isAdmin) {
+      query.isAvailable = true;
+    }
 
     const options = {
       page: parseInt(page, 10),
       limit: parseInt(perPage, 10),
-      sort: { [sortBy]: order === 'desc' ? -1 : 1 }
+      sort: { [sortBy]: order === "desc" ? -1 : 1 },
     };
 
     const careers = await Careers.paginate(query, options);
 
-
     res.status(200).json(careers);
   } catch (error) {
     console.log(error);
-    res.status(400).json({ message: error?.message ?? "Something went wrong !" });
+    res
+      .status(400)
+      .json({ message: error?.message ?? "Something went wrong !" });
   }
 };
 
@@ -47,22 +59,39 @@ const getProductById = async (req, res) => {
 };
 
 
-const addProduct = async (req, res) => {
+const addCareer = async (req, res) => {
   try {
-    const { name,place,times,summary,dutiesAndResponsibilities,workingConditions,jobRequirements } = req?.body
-    
+    const {
+      title,
+      location,
+      type,
+      linkedin_url,
+      pay,
+      summary,
+      dutiesAndResponsibilities,
+      workingConditions,
+      jobRequirements,
+    } = req?.body;
 
-    
-      const careers = new Careers({
-        name,place,times,summary,dutiesAndResponsibilities,workingConditions,jobRequirements
-      });
-      await careers.save();
+    const careers = new Careers({
+      title,
+      location,
+      type,
+      linkedin_url,
+      pay,
+      summary,
+      dutiesAndResponsibilities,
+      workingConditions,
+      jobRequirements,
+    });
+    await careers.save();
 
-      
-        res.status(200).json({ message: "Product added successfully !" });
+    res.status(200).json({ message: "Career added successfully !" });
   } catch (error) {
     console.log(error.message);
-    res.status(400).json({ message: error?.message ?? "Something went wrong !" });
+    res
+      .status(400)
+      .json({ message: error?.message ?? "Something went wrong !" });
   }
 };
 
@@ -77,10 +106,12 @@ console.log('_id, name, isAvailable, place,times,summary,dutiesAndResponsibiliti
       $set: { name, isAvailable, place,times,summary,dutiesAndResponsibilities,workingConditions,jobRequirements }
     })
 
-    res.status(200).json({ message: "Product updated successfully !" });
+    res.status(200).json({ message: "Career updated successfully !" });
   } catch (error) {
-    console.log(error.message)
-    res.status(400).json({ message: error?.message ?? "Something went wrong !" });
+    console.log(error.message);
+    res
+      .status(400)
+      .json({ message: error?.message ?? "Something went wrong !" });
   }
 }
 
@@ -94,7 +125,7 @@ console.log('_id, name, isAvailable, place,times,summary,dutiesAndResponsibiliti
 //   }
 // }
 
-const deleteProduct = async (req, res) => {
+const deleteCareer = async (req, res) => {
   try {
     const career = await Careers.findById(req.params.id);
     if (!career) {

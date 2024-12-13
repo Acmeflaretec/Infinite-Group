@@ -1,4 +1,4 @@
-const { Router } = require('express');
+const { Router } = require("express");
 const router = Router();
 const { addProduct, deleteProduct, getProductById, updateProduct,getAdminProducts,getCareers 
  } = require('../controllers/careersController');    
