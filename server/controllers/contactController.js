@@ -27,7 +27,7 @@ const createContact = async (req, res) => {
   }
 };
 
-const  getContacts = async (req, res) => {
+const  getContacts = async (req, res) => {ToggleButton
   console.log('getContacts');    
   
   try {
