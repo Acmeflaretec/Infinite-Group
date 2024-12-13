@@ -31,8 +31,14 @@ const  getContacts = async (req, res) => {
   console.log('getContacts');    
   
   try {
-    const { page = 1, perPage = 10, sortBy = 'createdAt', order = 'desc', search = '' } = req.query;
-    const query = search ? { firstName: { $regex: search, $options: 'i' } } : {};
+    const { page = 1, perPage = 10, sortBy = 'createdAt', order = 'desc', search = '',status } = req.query;
+    console.log('status',status);
+    
+    // const query = search ? { firstName: { $regex: search, $options: 'i' } } : {};
+    const query = {
+      ...(search && { firstName: new RegExp(search, 'i') }),
+      ...(status && { is_verified:status }),
+    };
 
     const options = {
       page: parseInt(page, 10),

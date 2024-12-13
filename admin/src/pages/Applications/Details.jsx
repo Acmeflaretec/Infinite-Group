@@ -52,19 +52,29 @@ const Details = () => {
   const { state } = useLocation();
   const { item } = state;
 
+  // const downloadCV = () => {
+  //   const link = document.createElement('a');
+  //   link.href = `${process.env.REACT_APP_API_URL}/uploads/${item?.cv}`;
+  //   link.setAttribute('download', `${item?.firstName}_${item?.lastName}_CV.pdf`);
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   link.parentNode.removeChild(link);
+  // };
+
   const downloadCV = () => {
     const link = document.createElement('a');
-    link.href = `${process.env.REACT_APP_API_URL}/uploads/${item?.cv}`;
+    link.href = `${process.env.REACT_APP_API_URL}/${item?.cv}`;
     link.setAttribute('download', `${item?.firstName}_${item?.lastName}_CV.pdf`);
     document.body.appendChild(link);
     link.click();
-    link.parentNode.removeChild(link);
+    document.body.removeChild(link);
   };
-
+  
   return (
     <PageLayout title="Applicant Details">
       <Grid container spacing={3} p={3}>
         <Grid item xs={12}>
+          <Typography variant="h3" marginBottom={2}>Career: {item?.careerId?.name}</Typography>
           <Typography variant="h6">Name: {item?.firstName} {item?.lastName}</Typography>
           <Typography>Email: {item?.email}</Typography>
           <Typography>LinkedIn ID: {item?.linkedInId}</Typography>
@@ -73,11 +83,12 @@ const Details = () => {
           <Typography>Contact: {item?.contactNumber}</Typography>
           <Typography>WhatsApp: {item?.whatsAppNumber}</Typography>
         </Grid>
-        <Grid item>
+        {/* <Grid item>
           <Button variant="contained" onClick={downloadCV}>
             Download CV
           </Button>
-        </Grid>
+
+        </Grid> */}
       </Grid>
     </PageLayout>
   );

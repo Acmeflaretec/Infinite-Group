@@ -1,4 +1,4 @@
-import { Button, Grid, TextField, IconButton, Box } from '@mui/material';
+import { Button, Grid, TextField, IconButton, Box ,ToggleButton} from '@mui/material';
 import Input from 'components/Input';
 import PageLayout from 'layouts/PageLayout';
 import React, {useEffect,useState } from 'react';
@@ -16,7 +16,6 @@ const EditCareers = () => {
 
   useEffect(() => {
     if (data?.data) {
-      console.log('data?.data', data?.data);
       setDetails(data.data);
     }
   }, [data]);
@@ -246,6 +245,20 @@ const EditCareers = () => {
                 Add job Requirement
               </Button>
             </Grid>
+            <Grid item xs={12} sm={6}>
+                  <Typography variant="caption">
+                  Careers status &nbsp;
+                  </Typography>
+                  <ToggleButton
+                     value={details?.isAvailable}
+                     selected={details?.isAvailable}
+                     onChange={() => {
+                      setDetails(prev => ({ ...prev, isAvailable: !details?.isAvailable }))
+                     }}
+                  >
+                     {details?.isAvailable ? 'Active' : 'Blocked'}
+                  </ToggleButton>
+               </Grid>
           </Grid>
           <Grid item xs={12}>
             <Button onClick={handleSubmit}>Update Careers</Button>

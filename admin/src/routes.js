@@ -4,9 +4,10 @@ import Careers from "pages/Careers";
 import Applications from "pages/Applications";
 import Settings from "pages/Settings";
 import Box from "components/Box";
+import Blogs from "pages/Blogs";
 
 const routes = [
- 
+
   {
     type: "route",
     name: "Contact",
@@ -15,7 +16,7 @@ const routes = [
     icon: <Box component="i" color="dark" fontSize="14px" className="ni ni-single-02" />,
     component: <Contact />,
   },
-  
+
   {
     type: "route",
     name: "Careers",
@@ -24,7 +25,7 @@ const routes = [
     icon: <Box component="i" color="primary" fontSize="14px" className="ni ni-bulb-61" />,
     component: <Careers />,
   },
-  
+
   {
     type: "route",
     name: "Applications",
@@ -33,9 +34,17 @@ const routes = [
     icon: <Box component="i" color="warning" fontSize="14px" className="ni ni-cart" />,
     component: <Applications />,
   },
- 
+  {
+    type: "route",
+    name: "Blogs",
+    key: "blogs",
+    route: "/blogs",
+    icon: <Box component="i" color="primary" fontSize="14px" className="ni ni-album-2" />,
+    component: <Blogs />,
+  },
+
   { type: "title", title: "Account Pages", key: "account-pages" },
- 
+
   {
     type: "route",
     name: "Settings",

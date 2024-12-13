@@ -21,7 +21,6 @@ const jobApplicationSchema = new mongoose.Schema({
   },
   linkedInId: {
     type: String,
-    required: true
   },
   country: {
     type: String,
@@ -41,6 +40,11 @@ const jobApplicationSchema = new mongoose.Schema({
   },
   cv: {
     type: String,     
+    required: true
+  },
+  careerId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Careers',
     required: true
   },
   status: {
