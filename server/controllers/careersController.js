@@ -3,7 +3,7 @@ const JobApplication = require('../models/JobApplication')
 
 
 
-const getCareers = async (req, res) => {
+const getAdminCareers = async (req, res) => {
   try {
     const {
       page = 1,
@@ -37,18 +37,7 @@ const getCareers = async (req, res) => {
 };
 
 
-// const getProductById = async (req, res) => {
-//   try {
-//     const data = await Careers.findOne({ _id: req.params.id })
-//     res.status(200).json({ data, message: 'product found successfully' });
-//   } catch (error) {
-//     console.log(error.message);
-//     res.status(400).json({ message: error?.message ?? "Something went wrong !" });
-//   }
-// }
-
-
-const getProductById = async (req, res) => {
+const getCareersById = async (req, res) => {
   try {
     const data = await Careers.findById(req.params.id).populate('applicants');
     res.status(200).json({ data, message: 'Career and applicants fetched successfully' });
@@ -59,7 +48,7 @@ const getProductById = async (req, res) => {
 };
 
 
-const addCareer = async (req, res) => {
+const addCareers = async (req, res) => { 
   try {
     const {
       title,
@@ -96,10 +85,9 @@ const addCareer = async (req, res) => {
 };
 
 
-const updateProduct = async (req, res) => {
+const updateCareers = async (req, res) => { 
   try {
     const { _id, name, isAvailable, place,times,summary,dutiesAndResponsibilities,workingConditions,jobRequirements} = req?.body
-console.log('_id, name, isAvailable, place,times,summary,dutiesAndResponsibilities,workingConditions,jobRequirements',_id, name, isAvailable, place,times,summary,dutiesAndResponsibilities,workingConditions,jobRequirements);
 
     
     await Careers.updateOne({ _id }, {
@@ -115,17 +103,7 @@ console.log('_id, name, isAvailable, place,times,summary,dutiesAndResponsibiliti
   }
 }
 
-// const deleteProduct = async (req, res) => {
-//   try {
-//     await Careers.deleteOne({ _id: req.params.id })
-//     res.status(200).json({ message: 'product deleted successfully' });
-//   } catch (error) {
-//     console.log(error.message);
-//     res.status(400).json({ message: error?.message ?? "Something went wrong !" });
-//   }
-// }
-
-const deleteCareer = async (req, res) => {
+const deleteCareers = async (req, res) => {
   try {
     const career = await Careers.findById(req.params.id);
     if (!career) {
@@ -152,10 +130,6 @@ const getCareers = async (req, res) => {
 
 
 module.exports = {
-  getProductById,
-  updateProduct,
-  addProduct,
-  deleteProduct,
-  getAdminProducts,
+  addCareers, deleteCareers, getCareersById, updateCareers,getAdminCareers,
   getCareers
 }  
