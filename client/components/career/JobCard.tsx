@@ -2,18 +2,11 @@ import React, { FC, useState } from "react";
 import CustomButton from "../ui/CustomButton";
 import { Icons } from "../common/Icons";
 import QuickApplyForm from "./QuickApplyForm";
+import { JobData } from "@/utils/interface";
 
 interface JobCardProps {
   isVisible: boolean;
-  data: {
-    job_id: string;
-    job_title: string;
-    job_employment_type: string;
-    job_location: string;
-    job_description: string;
-    job_responsibilities: string[];
-    job_requirements: string[];
-  };
+  data: JobData;
   onClose: () => void;
 }
 
@@ -30,7 +23,7 @@ const JobCard: FC<JobCardProps> = ({ isVisible, data, onClose }) => {
         .share({
           title: "Apply today & connect with your future!",
           text: "Discover this opportunity at Infinite Group.",
-          url: `https://infinite-grp.com/careers?job_id=${data?.job_id}`,
+          url: `https://infinite-grp.com/careers?job_id=${data?._id}`,
         })
         .catch((err) => console.error("Error sharing: ", err));
     } else {
@@ -39,7 +32,7 @@ const JobCard: FC<JobCardProps> = ({ isVisible, data, onClose }) => {
   };
 
   const handleCopy = () => {
-    const url = `https://infinite-grp.com/careers?job_id=${data?.job_id}`;
+    const url = `https://infinite-grp.com/careers?job_id=${data?._id}`;
     navigator.clipboard
       .writeText(url)
       .then(() => {
@@ -77,19 +70,21 @@ const JobCard: FC<JobCardProps> = ({ isVisible, data, onClose }) => {
                 Quick Apply Form
               </h3>
             )}
-            <h3 className="text-2xl md:text-3xl font-bold">
-              {data?.job_title}
-            </h3>
+            <h3 className="text-2xl md:text-3xl font-bold">{data?.title}</h3>
             <div className="flex gap-4">
               <p className="flex gap-2 items-center max-w-3xl text-sm md:text-base text-stone-500">
                 <Icons.location />
-                {data?.job_location}
+                {data?.location}
               </p>
               <p className="flex gap-2 items-center max-w-3xl text-sm md:text-base text-stone-500">
                 <Icons.breifcase />
-                {data?.job_employment_type}
+                {data?.type}
               </p>
             </div>
+            <p className="flex gap-2 items-center max-w-3xl text-xs md:text-sm text-stone-500">
+              <Icons.wallet />
+              {data?.pay}
+            </p>
             {!quickApplyForm && (
               <CustomButton type="primary" onClick={() => setForm(true)}>
                 Apply Now
@@ -111,23 +106,43 @@ const JobCard: FC<JobCardProps> = ({ isVisible, data, onClose }) => {
             </div>
           </div>
           {quickApplyForm ? (
-            <QuickApplyForm />
+            <QuickApplyForm props={data} />
           ) : (
             <div className="p-4 md:p-8 flex flex-col gap-5">
               <h3 className="text-lg font-bold">Job Summary</h3>
-              <p className="text-sm text-gray-500">{data?.job_description}</p>
-              <h3 className="text-lg font-bold">Responsiblilities & Duties</h3>
-              <ul className="text-sm text-gray-500">
-                {data?.job_responsibilities?.map((item, idx) => (
-                  <li key={idx}>* {item}</li>
-                ))}
-              </ul>
-              <h3 className="text-lg font-bold">Job Requirements</h3>
-              <ul className="text-sm text-gray-500">
-                {data?.job_requirements?.map((item, idx) => (
-                  <li key={idx}>* {item}</li>
-                ))}
-              </ul>
+              <p className="text-sm text-gray-500">{data?.summary}</p>
+              {!!data?.dutiesAndResponsibilities?.length && (
+                <>
+                  <h3 className="text-lg font-bold">
+                    Responsiblilities & Duties
+                  </h3>
+                  <ul className="text-sm text-gray-500">
+                    {data?.dutiesAndResponsibilities?.map((item, idx) => (
+                      <li key={idx}>* {item}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              {!!data?.jobRequirements?.length && (
+                <>
+                  <h3 className="text-lg font-bold">Job Requirements</h3>
+                  <ul className="text-sm text-gray-500">
+                    {data?.jobRequirements?.map((item, idx) => (
+                      <li key={idx}>* {item}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              {!!data?.workingConditions?.length && (
+                <>
+                  <h3 className="text-lg font-bold">Working Conditions</h3>
+                  <ul className="text-sm text-gray-500">
+                    {data?.workingConditions?.map((item, idx) => (
+                      <li key={idx}>* {item}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
               <h3 className="text-lg font-bold">
                 Apply Today & Connect with your Future!
               </h3>

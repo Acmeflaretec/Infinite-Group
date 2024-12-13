@@ -1,7 +1,13 @@
 import React from "react";
 import { Icons } from "../common/Icons";
+import { JobData } from "@/utils/interface";
+import Link from "next/link";
 
-const QuickApplyForm: React.FC = () => {
+interface JobCardProps {
+  props: JobData;
+}
+
+const QuickApplyForm: React.FC<JobCardProps> = ({ props }) => {
   return (
     <div className="p-2 md:p-8 flex flex-col gap-5">
       <form className="p-4 md:p-5">
@@ -140,11 +146,15 @@ const QuickApplyForm: React.FC = () => {
             If uploading, upload either DOC, DOCX, or PDF file types (1MB max)
           </p>
           <div className="flex flex-col md:flex-row gap-4">
-            <button className="inline-flex items-center bg-blue-50 gap-2 border border-gray-300 rounded-lg text-sm px-5 py-2.5 text-center">
+            <Link
+              href={props?.linkedin_url}
+              target="_blank"
+              className="inline-flex items-center bg-blue-50 gap-2 border border-gray-300 rounded-lg text-sm px-5 py-2.5 text-center"
+            >
               <Icons.linkedIn className="text-blue-400" /> Apply via Linked In
-            </button>
+            </Link>
             <button
-              type="submit"
+              type="button"
               className="inline-flex items-center bg-blue-50 gap-2 border border-gray-300 rounded-lg text-sm px-5 py-2.5 text-center"
             >
               <Icons.upload /> Upload from device

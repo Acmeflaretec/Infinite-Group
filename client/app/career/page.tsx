@@ -1,23 +1,20 @@
+"use client";
+import React from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
 import CustomJob from "@/components/career/CustomJob";
 import HeroSection from "@/components/career/HeroSection";
 import JoinOurTeam from "@/components/career/JoinOurTeam";
-import { Metadata } from "next";
-import React, { Suspense } from "react";
-
-export const metadata: Metadata = {
-  title: "Career | Infinite Group",
-  description:
-    "Apply today & connect with your future! @ Infinite Group of Companies",
-};
 
 const page = () => {
+  const queryClient = new QueryClient();
+
   return (
     <main>
-      <Suspense>
+      <QueryClientProvider client={queryClient}>
         <HeroSection />
         <JoinOurTeam />
         <CustomJob />
-      </Suspense>
+      </QueryClientProvider>
     </main>
   );
 };
