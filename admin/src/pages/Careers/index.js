@@ -8,7 +8,7 @@ function Products() {
     <PageLayout
       title={'Careers'}
       action={
-        <Button component={Link} to={`/careers/addCareers`}>Add Careers</Button>
+        <Button component={Link} to={`/careers/addCareers`}>Add Career</Button>
       }
     >
       <TableData/>
