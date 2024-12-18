@@ -52,7 +52,10 @@ const ContactSection: React.FC = () => {
             Dubai - UAE
           </Link>
           <div className="flex gap-8 z-10 py-4">
-            <Link href={"#"} target="_blank">
+            <Link
+              href={"https://www.linkedin.com/company/infinitegrp/"}
+              target="_blank"
+            >
               <Icons.linkedIn />
             </Link>
             <Link
@@ -66,7 +69,12 @@ const ContactSection: React.FC = () => {
             <Link href={"#"} target="_blank">
               <Icons.twitter />
             </Link>
-            <Link href={"#"} target="_blank">
+            <Link
+              href={
+                "https://www.instagram.com/infinite.group_/?igsh=aWRmbjRxbDJmamg2#"
+              }
+              target="_blank"
+            >
               <Icons.instagram />
             </Link>
           </div>

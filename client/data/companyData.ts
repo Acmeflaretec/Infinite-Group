@@ -13,7 +13,7 @@ export const companyData: companyData[] = [
     description:
       "Infinite International LLC, based in the UAE, provides exceptional coating solutions worldwide. Specializing in floor, traffic, food-grade, and antimicrobial coatings, they cater to diverse sectors. Renowned for quality and tailored services, their expert team ensures durable, innovative solutions while upholding integrity and exceeding industry standards in every project they undertake.",
     cover: "companies/Infinite-International-LLC.jpg",
-    href: "/contact",
+    href: "https://infiniteuae.com",
   },
   {
     title: "Infinite Education",
@@ -21,7 +21,7 @@ export const companyData: companyData[] = [
     description:
       "INFINITE EDUCATION provides expert university admission support, international study programs, flexible distance education, and fast-track PG certifications. Serving the UAE, Qatar, India, and Sri Lanka, we empower students to achieve academic goals in globally recognized environments.",
     cover: "companies/Infinite-Education.jpg",
-    href: "/contact",
+    href: "https://infinite-edu.com",
   },
   {
     title: "Infinite Vision Trading WLL",
@@ -45,7 +45,7 @@ export const companyData: companyData[] = [
     description:
       "We create bold advertising campaigns and memorable events to bring your brand to life. As part of Infinite Group, we specialize in tailored advertising services across Dubai, Qatar, and India, helping your brand stand out and connect meaningfully with your audience. ",
     cover: "companies/Infinite-Advertising-&-Events.jpg",
-    href: "/contact",
+    href: "https://infiniteadvert.com",
   },
   {
     title: "Infinite IT Services",
@@ -53,7 +53,7 @@ export const companyData: companyData[] = [
     description:
       "We are a full-service digital agency offering web development, graphic design, branding, and digital marketing, including SEO and social media. Combining creativity, strategy, and technology, we craft tailored solutions to enhance user engagement and brand visibility. Our IT infrastructure and support services ensure seamless business operations.",
     cover: "companies/Infinite-IT-services.jpg",
-    href: "/contact",
+    href: "https://infiniteitserv.com",
   },
   {
     title: "Infinite Tours & Travels",
@@ -61,7 +61,7 @@ export const companyData: companyData[] = [
     description:
       "Our Tours and Travels division offers seamless travel experiences, including visa assistance, flight bookings, personalized itineraries, and expert support. Whether for luxury or business trips, we tailor every journey to your needs, providing exclusive access to destinations and authentic experiences with a focus on excellence and convenience.",
     cover: "companies/Infinite-Tours-&-Travels.jpg",
-    href: "/contact",
+    href: "https://www.infinitetoursuae.com/",
   },
   {
     title: "Infinite Interior Designing",
@@ -69,7 +69,7 @@ export const companyData: companyData[] = [
     description:
       "Infinite Interior Designing, part of the Infinite Group, creates innovative, personalized designs for residential and commercial spaces. We combine elegance, efficiency, and sustainability to deliver exceptional results. Our experienced team ensures every detail reflects clients' unique tastes, providing high-quality designs that enhance spaces and client satisfaction.  ",
     cover: "companies/Infinite-Interior-Designing.jpg",
-    href: "/contact",
+    href: "https://infinteriors.com/",
   },
   {
     title: "Infinite Real Estate",
