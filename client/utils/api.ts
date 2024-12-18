@@ -37,4 +37,7 @@ const getBlogsById = async (id: string): Promise<{ data: { data: Blog } }> =>
 const sendInquiry = async (data: ContactData) =>
   request({ endpoint: `/contact`, method: "POST", data });
 
-export { getCareers, applyJob, getBlogs, getBlogsById, sendInquiry };
+const subscribe = async (data: { email: string }) =>
+  request({ endpoint: `/news-letter`, method: "POST", data });
+
+export { getCareers, applyJob, getBlogs, getBlogsById, sendInquiry, subscribe };

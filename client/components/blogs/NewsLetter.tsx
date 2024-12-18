@@ -1,9 +1,31 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import CustomButton from "../ui/CustomButton";
 import { Icons } from "../common/Icons";
+import { subscribe } from "@/utils/api";
+import toast from "react-hot-toast";
 
 const NewsLetter: React.FC = () => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const handleSubmit = async () => {
+    if (!email) toast.error("Email is required");
+    else if (!/\S+@\S+\.\S+/.test(email)) toast.error("Invalid email format");
+    else {
+      setLoading(true);
+      try {
+        await subscribe({ email });
+        toast.success("Subscribed to newsletter successfully!");
+        setEmail("");
+      } catch (error: any) {
+        toast.error(
+          error.message || "Something went wrong. Please try again later."
+        );
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
   return (
     <div className="p-4 md:p-12 border-b-2">
       <div className="flex flex-col w-full lg:w-2/3 max-w-2xl mx-auto gap-4 lg:gap-8 p-8 font-bricolage bg-gradient-to-r from-violet-100 to-blue-100 rounded-2xl">
@@ -18,11 +40,21 @@ const NewsLetter: React.FC = () => {
         </div>
         <div className="flex flex-col items-center md:flex-row gap-2">
           <input
+            value={email}
+            id="email"
             placeholder="Enter your email"
+            onChange={(e) => setEmail(e.target.value)}
             className="border border-stone-300 rounded-2xl text-sm py-2 px-4 w-full"
           />
-          <CustomButton type="secondary" pointer={false}>
-            <span className="font-normal">Subscribe</span>
+          <CustomButton
+            type="secondary"
+            pointer={false}
+            onClick={handleSubmit}
+            disabled={loading}
+          >
+            <span className="font-normal">
+              {loading ? "loading..." : "Subscribe"}
+            </span>
           </CustomButton>
         </div>
         <div className="flex justify-between items-center pt-16">

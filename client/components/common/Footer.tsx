@@ -2,10 +2,32 @@
 import { links } from "@/data/footerData";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { Icons } from "./Icons";
+import toast from "react-hot-toast";
+import { subscribe } from "@/utils/api";
 
 const Footer: React.FC = () => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const handleSubmit = async () => {
+    if (!email) toast.error("Email is required");
+    else if (!/\S+@\S+\.\S+/.test(email)) toast.error("Invalid email format");
+    else {
+      setLoading(true);
+      try {
+        await subscribe({ email });
+        toast.success("Subscribed to newsletter successfully!");
+        setEmail("");
+      } catch (error: any) {
+        toast.error(
+          error.message || "Something went wrong. Please try again later."
+        );
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
   return (
     <footer className="bg-white font-bricolage text-stone-500">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
@@ -51,10 +73,17 @@ const Footer: React.FC = () => {
               <div className="flex border border-stone-300 rounded-full text-sm p-1 pl-3 w-full">
                 <input
                   placeholder="Enter your email"
+                  value={email}
+                  id="email"
+                  onChange={(e) => setEmail(e.target.value)}
                   className="outline-none text-sm px-2 w-full"
                 />
-                <button className="bg-black text-white p-2 rounded-full">
-                  <Icons.rightArrow />
+                <button
+                  className="bg-black text-white p-2 rounded-full"
+                  onClick={handleSubmit}
+                  disabled={loading}
+                >
+                  {loading ? <Icons.loading /> : <Icons.rightArrow />}
                 </button>
               </div>
             </div>
