@@ -1,5 +1,6 @@
 
 import Contact from "pages/Contact";
+import Subscription from "pages/subscription";
 import Careers from "pages/Careers";
 import Applications from "pages/Applications";
 import Settings from "pages/Settings";
@@ -15,6 +16,14 @@ const routes = [
     route: "/contact",
     icon: <Box component="i" color="dark" fontSize="14px" className="ni ni-single-02" />,
     component: <Contact />,
+  },
+  {
+    type: "route",
+    name: "Subscribe",
+    key: "subscribe",
+    route: "/subscribe",
+    icon: <Box component="i" color="dark" fontSize="14px" className="ni ni-single-02" />,
+    component: <Subscription />,
   },
 
   {

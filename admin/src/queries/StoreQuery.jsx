@@ -6,7 +6,10 @@ import {
     editBlogs,
     deleteBlogs,
     getUsers,
-    editUsers
+    editUsers,
+    getSubscribes,
+    editSubscribes,
+    updateBlogBanner
 } from "./storeUrls";
 
 const useGetBlogs = (data) => {
@@ -88,9 +91,45 @@ const useUpdateUserStatus = () => {
         },
     });
 };
+const useGetSubscribe = (params) => {
+    return useQuery(["get_Subscribe", params], () => getSubscribes(params), {
+        keepPreviousData: true,
+        refetchOnWindowFocus: false,
+    });
+};
+const useUpdateSubscribeStatus = () => {
+
+    const queryClient = useQueryClient();
+
+    return useMutation(({ SubscribeId, newStatus }) => editSubscribes({ SubscribeId, newStatus }), {
+        onSuccess: (data) => {
+            queryClient.invalidateQueries("get_Subscribe");
+            return data;
+        },
+        onError: (data) => {
+            return data;
+        },
+    });
+};
+
+const useUpdateBlogBanner = () => {
+    const queryClient = useQueryClient();
+  
+    return useMutation(({ blogId, banner }) => updateBlogBanner(blogId, banner), {
+      onSuccess: () => {
+        queryClient.invalidateQueries("get_blogs");
+      },
+      onError: (error) => {
+        console.error("Error updating banner:", error);
+      },
+    });
+  };
 export {
+    useUpdateBlogBanner,
     useGetUser,
     useUpdateUserStatus, 
+    useGetSubscribe,
+    useUpdateSubscribeStatus, 
     useGetBlogs,
     useGetBlogsById,
     useAddBlogs,
