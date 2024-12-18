@@ -35,7 +35,10 @@ export interface JobData {
   updatedAt: string;
 }
 export interface ContactData {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  resume: string;
+  phoneNumber: string;
+  subject: string;
+  message: string;
 }

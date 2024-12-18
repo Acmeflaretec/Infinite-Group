@@ -15,7 +15,7 @@ const request = async <T>({
   endpoint,
   method,
   data,
-}: RequestOptions): Promise<T> => {
+}: RequestOptions): Promise<AxiosResponse<T>> => {
   try {
     const options: AxiosRequestConfig = {
       method,
@@ -24,7 +24,7 @@ const request = async <T>({
     };
     const res: AxiosResponse<T> = await axiosInstance.request<T>(options);
     console.log(res);
-    return res?.data;
+    return res;
   } catch (error: any) {
     if (!error?.response) {
       throw error;

@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import { Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google";
+import CustomToaster from "@/components/ui/CustomToaster";
 
 export const metadata: Metadata = {
   title: "INFINITE GROUP",
@@ -29,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${bricolage.variable} ${plusJakartaSans.variable}`}>
+        <CustomToaster />
         <Header />
         {children}
         <Footer />

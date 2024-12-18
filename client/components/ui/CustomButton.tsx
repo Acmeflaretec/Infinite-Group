@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -9,6 +9,7 @@ interface CustomButtonProps {
   pointer?: boolean;
   href?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -17,9 +18,13 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   direction = "E",
   href,
   onClick,
+  disabled = false,
   children,
 }) => {
-  const angleMap: Record<NonNullable<CustomButtonProps["direction"]>, string> = {
+  const angleMap: Record<
+    NonNullable<CustomButtonProps["direction"]>,
+    string
+  > = {
     N: "-rotate-90", // North
     S: "rotate-90", // South
     E: "rotate-0", // East
@@ -49,10 +54,17 @@ const CustomButton: React.FC<CustomButtonProps> = ({
           ? "bg-gradient-to-r from-primary100 via-primary300 to-primary200"
           : "bg-gradient-to-r from-[#D4B449] via-[#F1DB91] to-[#B99C3C] drop-shadow-2xl"
       } ${pointer ? "p-2" : "px-3 py-2"}`}
+      disabled={disabled}
     >
       <p
         className={`font-bricolage font-bold ${
-          type === "secondary" ? (pointer ? "pr-1 pl-8" : "px-8") : (pointer ? "text-white px-4" : "text-white px-4 font-thin")
+          type === "secondary"
+            ? pointer
+              ? "pr-1 pl-8"
+              : "px-8"
+            : pointer
+            ? "text-white px-4"
+            : "text-white px-4 font-thin"
         }`}
       >
         {children}
