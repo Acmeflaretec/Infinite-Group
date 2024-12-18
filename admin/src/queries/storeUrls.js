@@ -6,6 +6,10 @@ const deleteBlogs = async (data) => request(`/blogs/${data?._id}`, 'DELETE', dat
 const getBlogs = async (data) => request(`/blogs?page=${data?.pageNo}&perpageitems=${data?.pageCount}`, 'GET', data)
 const getBlogsById = async (data) => request(`/blogs/${data?.id}`, 'GET', data)
 
+const updateBlogBanner = async (blogId, banner) => {
+  return request(`/blogs/${blogId}/setBanner`, 'PUT', { banner });
+};
+
 
 
 
@@ -25,6 +29,21 @@ const getUsers = async ({ page, perPage, sortBy, order, search , status }) => {
   return response;
 };
 
+const editSubscribes = async ({ SubscribeId, newStatus }) => request('/news-letter/update-status', 'PUT', {SubscribeId, newStatus})
+const getSubscribes = async ({ page, perPage, sortBy, order, search , status }) => {
+  const queryParams = new URLSearchParams({
+    page,
+    perPage,
+    sortBy,
+    order,
+    search,
+    status
+  }).toString();
+
+  const response = await request(`/news-letter/getAllSubscribes?${queryParams}`, 'GET');
+  return response;
+};
+
 export { 
     addBlogs,
     editBlogs,
@@ -32,5 +51,8 @@ export {
     getBlogs,
     getBlogsById,
     getUsers,
-    editUsers
+    editUsers,
+    getSubscribes,
+    editSubscribes,
+    updateBlogBanner
   };
