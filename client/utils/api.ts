@@ -1,5 +1,5 @@
 import request from "./axiosInstance";
-import { Blog, ContactData, JobData } from "./interface";
+import { Blog, ContactData } from "./interface";
 
 const buildQueryParams = (data: Record<string, number | string>) =>
   new URLSearchParams(
@@ -15,7 +15,7 @@ const getCareers = async (data: { page: number; perPage: number }) =>
     method: "GET",
   });
 
-const applyJob = async (data: JobData) =>
+const applyJob = async (data: FormData) =>
   request({
     endpoint: `/job-applications`,
     method: "POST",

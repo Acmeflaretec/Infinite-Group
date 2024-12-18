@@ -53,3 +53,16 @@ export interface Blog {
   image: string;
   url: string;
 }
+
+export interface JobApplication {
+  firstname: string;
+  lastname: string;
+  email: string;
+  linkedin: string;
+  country: string;
+  qualification: string;
+  phone: string;
+  whatsapp: string;
+  cv: File | null;
+  careerId: string;
+}
