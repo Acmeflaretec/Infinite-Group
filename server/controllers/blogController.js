@@ -4,6 +4,9 @@ const fs = require('fs');
 const getBlogs = async (req, res) => {
   try {
     const filter = {};
+    if(req?.query?.banner){
+      filter.banner = req?.query?.banner
+    }
     if (!req?.query?.isAdmin) {
       filter.status = true;
     }

@@ -19,6 +19,10 @@ const blogSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    banner: {
+        type: Boolean,
+        default: false
+    },
     status: {
         type: Boolean,
         default: true
