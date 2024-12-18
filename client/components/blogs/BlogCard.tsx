@@ -24,7 +24,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
       onClick={() => router.push(`blogs/${data?._id}`)}
     >
       <Image
-        src={`/assets/${data?.image}`}
+        src={`${process.env.NEXT_PUBLIC_SERVER_URL}/uploads/${data?.image}`}
         alt="background cover image"
         fill
         className="absolute object-cover transition-transform duration-500 group-hover:scale-110"

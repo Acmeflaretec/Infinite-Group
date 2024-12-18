@@ -32,8 +32,8 @@ const JoinOurTeam: React.FC = () => {
   );
 
   useEffect(() => {
-    setJobData(res?.docs);
-    setData(res?.docs?.[0]);
+    setJobData(res?.data);
+    setData(res?.data?.[0]);
   }, [res]);
 
   return (

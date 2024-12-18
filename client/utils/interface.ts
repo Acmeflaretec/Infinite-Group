@@ -42,3 +42,14 @@ export interface ContactData {
   subject: string;
   message: string;
 }
+
+export interface Blog {
+  _id: string;
+  createdAt: string;
+  updatedAt: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  url: string;
+}

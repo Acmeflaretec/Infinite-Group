@@ -1,5 +1,5 @@
 import request from "./axiosInstance";
-import { ContactData, JobData } from "./interface";
+import { Blog, ContactData, JobData } from "./interface";
 
 const buildQueryParams = (data: Record<string, number | string>) =>
   new URLSearchParams(
@@ -22,13 +22,13 @@ const applyJob = async (data: JobData) =>
     data,
   });
 
-const getBlogs = async (data: { page: number; perPage: number }) =>
+const getBlogs = async (data: any): Promise<{ data: { data: Blog[] } }> =>
   request({
     endpoint: `/blogs?${buildQueryParams(data)}`,
     method: "GET",
   });
 
-const getBlogsById = async (id: string) =>
+const getBlogsById = async (id: string): Promise<{ data: { data: Blog } }> =>
   request({
     endpoint: `/blogs/${id}`,
     method: "GET",
@@ -37,10 +37,4 @@ const getBlogsById = async (id: string) =>
 const sendInquiry = async (data: ContactData) =>
   request({ endpoint: `/contact`, method: "POST", data });
 
-export {
-  getCareers,
-  applyJob,
-  getBlogs,
-  getBlogsById,
-  sendInquiry,
-};
+export { getCareers, applyJob, getBlogs, getBlogsById, sendInquiry };

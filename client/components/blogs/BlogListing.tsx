@@ -1,15 +1,33 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import blogData from "@/data/blogData";
 import CustomButton from "../ui/CustomButton";
 import BlogCard from "./BlogCard";
+import { getBlogs } from "@/utils/api";
+import toast from "react-hot-toast";
+import { Blog } from "@/utils/interface";
 
 const BlogListings: React.FC = () => {
   const [index, setIndex] = useState(3);
-  const data = blogData?.slice(0, index);
+  const [data, setData] = useState<Blog[] | []>(blogData);
+
+  const fetchData = async () => {
+    try {
+      const res = await getBlogs({});
+      const data = res?.data?.data || null;
+      setData(data);
+    } catch (error: any) {
+      toast.error(
+        error.message || "Something went wrong. Please try again later."
+      );
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   const handleLoad = () => {
     const pos = index + 3;
-    if (index < blogData.length) {
+    if (index < data?.length) {
       setIndex(pos);
     }
   };
@@ -19,7 +37,7 @@ const BlogListings: React.FC = () => {
         Popular Blogs
       </p>
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        {data?.map((item, index) => (
+        {data?.slice(0, index)?.map((item, index) => (
           <React.Fragment key={`parent-${index}`}>
             <div key={`card-${index}`} className="col-span-2">
               <BlogCard data={item} />

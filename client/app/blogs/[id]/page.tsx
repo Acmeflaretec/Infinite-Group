@@ -5,6 +5,9 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import blogData from "@/data/blogData";
 import { Icons } from "@/components/common/Icons";
+import { getBlogsById } from "@/utils/api";
+import toast from "react-hot-toast";
+import { Blog } from "@/utils/interface";
 
 interface Props {
   params: Promise<{
@@ -12,9 +15,10 @@ interface Props {
   }>;
 }
 
-const Blog = ({ params }: Props) => {
+const BlogPage: React.FC<Props> = ({ params }: Props) => {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [data, setData] = useState<Blog | null>(blogData[0]);
   const [resolvedParams, setResolvedParams] = useState<{ id: string } | null>(
     null
   );
@@ -29,8 +33,33 @@ const Blog = ({ params }: Props) => {
     return <div dangerouslySetInnerHTML={{ __html: desc || "" }} />;
   };
 
-  const data = id ? blogData[parseInt(id) - 1] : null;
+  const [imgSrc, setImgSrc] = useState(
+    `/${data?.image}` || "/assets/blog-banner.png"
+  );
 
+  const handleImageError = () => {
+    setImgSrc("/assets/blog-banner.png");
+  };
+  const fetchData = async () => {
+    try {
+      if (id) {
+        const res = await getBlogsById(id);
+        const data = res?.data?.data || null;
+        console.warn(data);
+        setData(data);
+        setImgSrc(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/uploads/${data?.image}`
+        );
+      }
+    } catch (error: any) {
+      toast.error(
+        error.message || "Something went wrong. Please try again later."
+      );
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, [id]);
   return (
     <section className="pt-[70px] md:pt-[120px] pb-[50px] md:pb-[100px] bg-[#FEFDFD] flex items-center justify-center font-bricolage">
       <div className="container p-6 md:p-10 w-full">
@@ -94,9 +123,10 @@ const Blog = ({ params }: Props) => {
                 <div className="mb-10 w-full overflow-hidden rounded-lg">
                   <div className="relative aspect-[97/60] w-full sm:aspect-[97/44] flex items-center justify-center">
                     <img
-                      src={`/assets/${data?.image}`}
+                      src={imgSrc}
                       alt="image"
                       onLoad={() => setLoading(false)}
+                      onError={handleImageError}
                       width={400}
                       height={100}
                       className={`${
@@ -170,4 +200,4 @@ const Blog = ({ params }: Props) => {
   );
 };
 
-export default Blog;
+export default BlogPage;
