@@ -30,6 +30,7 @@ const ContactSection: React.FC = () => {
           </p>
           <Link
             href={"tel:+971503397437"}
+            target="_blank"
             className="flex gap-4 max-w-md text-sm md:text-base z-10"
           >
             <Icons.phone />
@@ -43,7 +44,10 @@ const ContactSection: React.FC = () => {
             info@infinite-grp.com
           </Link>
           <Link
-            href={"#"}
+            href={
+              "https://www.google.com/maps/dir//Al+Fajer+Complex+-+105%2F1St+Floor+-+Umm+Hurair+Rd+-+Oud+Metha+-+Dubai+-+United+Arab+Emirates/@25.2446809,55.2299604,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x6b27ac30b7ae2bb9:0x20aab1d8b643fd3e!2m2!1d55.3123619!2d25.2447038?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"
+            }
+            target="_blank"
             className="flex gap-4 max-w-md text-sm md:text-base z-10"
           >
             <Icons.location className="sm:w-10 sm:h-10" />
@@ -65,6 +69,9 @@ const ContactSection: React.FC = () => {
               target="_blank"
             >
               <Icons.facebook />
+            </Link>
+            <Link href={"https://g.co/kgs/CBvAQ6f"} target="_blank">
+              <Icons.google />
             </Link>
             <Link
               href={

@@ -17,7 +17,7 @@ export const faqsData: FaqItem[] = [
   {
     title: "Which industries do you serve?",
     content:
-      "We serve a variety of industries, including Consulting, Education, Trading, Businessmen Solutions, Advertising and Events, IT Services, Tours and Travels, Interior Designing, Real Estate, and more.",
+      "We serve a variety of industries, including International Business, Education, Business Solutions, Advertising and Events, IT services, Tourism and Travel, Interior Designing, Real Estate, and more.",
   },
   {
     title: "Why should I choose Infinite Group over other companies?",
