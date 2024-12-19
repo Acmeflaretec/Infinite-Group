@@ -11,8 +11,7 @@ export const locationData: LocationData[] = [
   {
     title: "United Arab Emirates",
     subtitle: "Head Quarters",
-    helpertext:
-      "P. O. Box : 118467, 105-9, First Floor, Al Fajjer Complex, Umm Hurair Road, Oud Metha , Dubai -  U.A.E.",
+    helpertext: `P. O. Box : 118467, 105-9, First Floor,\nAl Fajjer Complex, Umm Hurair Road,\nOud Metha, Dubai -  U.A.E.`,
     icon: "globe.svg",
     cover: "dubai.png",
     href: "/contact",

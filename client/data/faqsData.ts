@@ -7,7 +7,7 @@ export const faqsData: FaqItem[] = [
   {
     title: "What services does Infinite Group of Companies offer?",
     content:
-      "Infinite Group of Companies offers a wide range of services, including consulting, education, trading, Businessmen Solutions, Advertising and Events, IT Services, Tours and Travels, Interior Designing, Real Estate, and government transactions.",
+      "Infinite Group of Companies offers a wide range of services, including Consulting, Education, Trading, Businessmen Solutions, Advertising and Events, IT Services, Tours and Travels, Interior Designing, Real Estate, and Government Transactions.",
   },
   {
     title: "How can I contact your team for support or inquiries?",
@@ -17,7 +17,7 @@ export const faqsData: FaqItem[] = [
   {
     title: "Which industries do you serve?",
     content:
-      "We serve a variety of industries, including international business, education, business solutions, advertising and events, IT services, tourism and travel, interior designing, real estate, and more.",
+      "We serve a variety of industries, including Consulting, Education, Trading, Businessmen Solutions, Advertising and Events, IT Services, Tours and Travels, Interior Designing, Real Estate, and more.",
   },
   {
     title: "Why should I choose Infinite Group over other companies?",

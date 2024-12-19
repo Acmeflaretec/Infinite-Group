@@ -66,9 +66,6 @@ const ContactSection: React.FC = () => {
             >
               <Icons.facebook />
             </Link>
-            <Link href={"#"} target="_blank">
-              <Icons.twitter />
-            </Link>
             <Link
               href={
                 "https://www.instagram.com/infinite.group_/?igsh=aWRmbjRxbDJmamg2#"

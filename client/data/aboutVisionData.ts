@@ -13,7 +13,7 @@ export const aboutVisionData: VisionData[] = [
     subtitle:
       "Empowering growth through tailored solutions, driven by innovation and excellence.",
     description:
-      "Our mission is clear: To provide innovative, high-quality solutions across a broad  spectrum of industries while contributing to the economic growth and  development of the regions we operate in.   At Infinite Group, we understand that every client is unique, and so are their  challenges.",
+      "Our mission is clear: To provide innovative, high-quality solutions across a broad  spectrum of industries while contributing to the economic growth and  development of the regions we operate in.   At Infinite Group, we understand that every client is unique, and so are their challenges.",
     image: "quote.png",
     cover: "journey.png",
     href: "/",

@@ -44,14 +44,11 @@ const JoinOurTeam: React.FC = () => {
       <h1 className="text-2xl lg:text-4xl xl:text-5xl font-bold leading-snug md:leading-tight max-w-2xl bg-gradient-to-r from-primary100 via-primary200 to-primary100 text-transparent bg-clip-text font-bricolage">
         Explore our open positions and apply now
       </h1>
-      <p className="max-w-md text-sm md:text-base text-stone-500 font-bricolage">
-        Send your CV and a short motivational letter to
-        <Link className="text-blue-600" href={"mailto:career@infinite-grp.com"}>
-          {" "}
-          career@infinite-grp.com{" "}
-        </Link>
-        with the name of the position you are applying for in the subject of the
-        email.
+      <p className="max-w-lg text-sm md:text-base text-stone-500 font-bricolage">
+        Join Infinite Group of Companies and be part of a team driving
+        innovation across diverse industries. Explore exciting career
+        opportunities where your talents can thrive and contribute to shaping
+        solutions that make a difference globally.
       </p>
       {isLoading
         ? Array(3)

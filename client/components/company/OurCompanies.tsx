@@ -37,6 +37,7 @@ const OurCompanies: React.FC = () => {
               key={`card-${index}`}
               className="col-span-2"
               href={data?.href}
+              target="_blank"
             >
               <p className="flex uppercase gap-2 text-sm py-1">
                 <Icons.handshake className="md:h-6 md:w-6" />

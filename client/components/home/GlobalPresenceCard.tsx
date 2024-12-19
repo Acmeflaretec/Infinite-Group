@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { Icons } from "../common/Icons";
 
 interface GlobalPresenceCardProps {
   data: {
@@ -30,7 +31,12 @@ const GlobalPresenceCard: React.FC<GlobalPresenceCardProps> = ({ data }) => {
         </span>
         <div className="flex flex-col gap-1">
           <span className="text-2xl text-white uppercase">{data.subtitle}</span>
-          <p className="text-stone-400 text-sm uppercase">{data.helpertext}</p>
+          <p
+            className="text-stone-400 text-sm uppercase"
+            dangerouslySetInnerHTML={{
+              __html: data.helpertext.replace(/\n/g, "<br />"),
+            }}
+          />
         </div>
       </div>
       <div className="absolute inset-0 flex flex-col justify-end px-12 pt-8 pb-24 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
@@ -47,22 +53,7 @@ const GlobalPresenceCard: React.FC<GlobalPresenceCardProps> = ({ data }) => {
             </p>
           </div>
           <button className="!p-2 flex justify-center items-center !w-10 !h-10 transition-all duration-500 rounded-full bg-white">
-            <svg
-              className="h-5 w-5 text-primary100 group-hover:text-black"
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-            >
-              <path
-                d="M5.99984 4.00012L10 8.00029L5.99748 12.0028"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <Icons.rightArrow className="text-primary100 group-hover:text-black" />
           </button>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import CustomButton from "../ui/CustomButton";
+import Link from "next/link";
 
 interface CompanyCardProps {
   data: {
@@ -34,9 +35,11 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ data }) => {
         </span>
         <div className="flex flex-col gap-4">
           <p className="text-stone-300 text-sm">{data?.description}</p>
-          <CustomButton type="secondary" pointer={false} href={data?.href}>
-            Explore Now
-          </CustomButton>
+          <Link href={data?.href} target="_blank">
+            <CustomButton type="secondary" pointer={false}>
+              Explore Now
+            </CustomButton>
+          </Link>
         </div>
       </div>
     </div>

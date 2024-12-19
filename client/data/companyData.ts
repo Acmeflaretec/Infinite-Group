@@ -12,7 +12,7 @@ export const companyData: companyData[] = [
     subtitle: "Trading & Contracting",
     description:
       "Infinite International LLC, based in the UAE, provides exceptional coating solutions worldwide. Specializing in floor, traffic, food-grade, and antimicrobial coatings, they cater to diverse sectors. Renowned for quality and tailored services, their expert team ensures durable, innovative solutions while upholding integrity and exceeding industry standards in every project they undertake.",
-    cover: "companies/Infinite-International-LLC.jpg",
+    cover: "companies/Infinite-International-LLC.jpeg",
     href: "https://infiniteuae.com",
   },
   {
@@ -29,7 +29,7 @@ export const companyData: companyData[] = [
     description:
       "INFINITE VISION TRADING WLL, based in Qatar, specializes in high-quality coating solutions, including floor, traffic, road markings, and antimicrobial coatings. Serving residential, commercial, and industrial sectors, we deliver tailored, durable solutions with a focus on quality, integrity, and customer satisfaction, ensuring excellence in every project.",
     cover: "companies/Infinite-Vision-Trading-WLL.jpg",
-    href: "/contact",
+    href: "https://infiniteuae.com",
   },
   {
     title: "Infinite Businessmen Solutions",
@@ -37,7 +37,7 @@ export const companyData: companyData[] = [
     description:
       "We provide expert business setup and PRO services in the UAE, KSA, and Qatar, ensuring smooth, compliant processes. With deep regulatory knowledge, we help entrepreneurs minimize delays, ensure compliance, and unlock growth potential for new or expanding ventures.      ",
     cover: "companies/Infinite-Businessmen-Solutions.jpg",
-    href: "/contact",
+    href: "https://infbsns.com",
   },
   {
     title: "Infinite Advertising & Events",
@@ -77,7 +77,7 @@ export const companyData: companyData[] = [
     description:
       "Infinite Real Estate, part of the Infinite Group, offers end-to-end solutions for finding homes, investments, and commercial spaces. With expertise in the Dubai market, we provide personalized service, ensuring a seamless, rewarding experience driven by integrity and a deep understanding of client needs.",
     cover: "companies/Infinite-Real-Estate.jpg",
-    href: "/contact",
+    href: "https://inf-re.com",
   },
   {
     title: "Paramount International LLC",
@@ -85,7 +85,7 @@ export const companyData: companyData[] = [
     description:
       "Paramount International LLC, part of Infinite Group, excels in global trading, importing, exporting, and distributing diverse products like industrial equipment, raw materials, and consumer goods. Serving the UAE and beyond, we ensure quality, reliability, and timely delivery to meet evolving market needs.",
     cover: "companies/Paramount-International-LLC.jpg",
-    href: "/contact",
+    href: "https://paramountdubai.com",
   },
   {
     title: "Infinite International PVT LTD",
@@ -93,6 +93,6 @@ export const companyData: companyData[] = [
     description:
       "Infinite International Pvt Ltd, part of the Infinite Group, bridges India and the UAE, offering educational, business, and administrative support. We assist Indian students with study abroad processes and provide services for business setup, immigration, and more, ensuring seamless communication and compliance with international regulations.",
     cover: "companies/Infinite-International.jpg",
-    href: "/contact",
+    href: "https://infinite-edu.com",
   },
 ];

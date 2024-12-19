@@ -44,7 +44,12 @@ const LocationCard: React.FC<LocationCardProps> = ({ data }) => {
           <span className="text-2xl font-semibold text-white uppercase">
             {data.subtitle}
           </span>
-          <p className="text-stone-400 text-sm uppercase">{data.helpertext}</p>
+          <p
+            className="text-stone-400 text-sm uppercase"
+            dangerouslySetInnerHTML={{
+              __html: data.helpertext.replace(/\n/g, "<br />"),
+            }}
+          />
         </div>
       </div>
     </div>
