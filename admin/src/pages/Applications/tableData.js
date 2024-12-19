@@ -115,11 +115,12 @@
 
 import { useState, useEffect } from "react";
 import Box from "components/Box";
-import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Typography from "components/Typography";
 import Table from "examples/Tables/Table";
 import { Select, MenuItem, TextField, Button, Pagination, Icon } from "@mui/material";
 import { Link } from "react-router-dom";
+import PageLayout from "layouts/PageLayout";
 import {
   useGetApplicants,
   useUpdateApplicantStatus,
@@ -130,15 +131,18 @@ import JSZip from "jszip";
 import { saveAs } from "file-saver";
 
 const TableData = () => {
-  const navigate = useNavigate();
+  const location = useLocation();
+  const initialCareerId = location.state?.careerId || "";
+  // const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
   const [sortBy, setSortBy] = useState("createdAt");
   const [order, setOrder] = useState("desc");
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("");
-  const [careerId, setCareer] = useState("");
+  const [careerId, setCareer] = useState(initialCareerId);
   const [qualification, setQualification] = useState("");
+  const [downloadLimit, setDownloadLimit] = useState();
 
   const { data, isLoading } = useGetApplicants({
     page,
@@ -162,10 +166,10 @@ const TableData = () => {
     setPage(value);
   };
 
-  const handleDownloadAllCVs = async () => {
+  const handleDownloadAllCVs = async (limit = null) => {
     const zip = new JSZip();
     try {
-      const filePromises = data?.docs.map(async (item, idx) => {
+      const filePromises = data?.docs.slice(0, limit ?? data.docs.length).map(async (item, idx) => {
         const doc_url = `${process.env.REACT_APP_API_URL}/uploads/${item?.cv}`;
         const fileExtension = item?.cv?.split(".").pop() || "";
         const doc_name = `${String(idx + 1).padStart(2, "0")}_${item?.firstName}.${fileExtension}`;
@@ -219,7 +223,7 @@ const TableData = () => {
     ),
     careers: (
       <Typography variant="caption" color="secondary" fontWeight="medium">
-        {item?.careerId?.name}
+        {item?.careerId?.title}
       </Typography>
     ),
     Qualification: (
@@ -242,28 +246,56 @@ const TableData = () => {
   }));
 
   return (
-    <>
-      <Box display="flex" alignItems="center" justifyContent="space-between" py={1}>
-        <TextField
-          placeholder="Search by name or email..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          variant="outlined"
-          size="small"
-        />
+    <PageLayout title={"Careers"}>
+      <Box gap={2}>
 
-        <TextField
-          placeholder="Search by qualification..."
-          value={qualification}
-          onChange={(e) => setQualification(e.target.value)}
-          variant="outlined"
-          size="small"
-        />
-        <Button onClick={handleDownloadAllCVs} variant="contained" color="primary">
-          Download All CVs
-        </Button>
+        <Box display="flex" alignItems="center" justifyContent="space-between" py={1}>
+          <TextField
+            placeholder="Search by name..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            variant="outlined"
+            size="small"
+          />
+
+          <Button onClick={() => setOrder(order === 'asc' ? 'desc' : 'asc')}>
+            Sort by {sortBy} ({order})
+          </Button>
+        </Box>
+
+        <Box display="flex" alignItems="center" justifyContent="space-between" py={1}>
+
+
+          <TextField
+            placeholder="Search by qualification..."
+            value={qualification}
+            onChange={(e) => setQualification(e.target.value)}
+            variant="outlined"
+            size="medium"
+          />
+
+          <Box>
+            <TextField
+              type="number"
+              placeholder="Download Limit"
+              value={downloadLimit}
+              onChange={(e) => setDownloadLimit(Number(e.target.value))}
+              variant="outlined"
+              size="medium"
+
+            />
+            <Button
+              onClick={() => handleDownloadAllCVs(downloadLimit)}
+              variant="contained"
+              color="primary"
+              
+            >
+              Download CVs
+            </Button>
+          </Box>
+        </Box>
       </Box>
-      <Box display="flex" alignItems="center" justifyContent="space-between" py={1}>
+      {/* <Box display="flex" alignItems="center" justifyContent="space-between" py={1}>
         <Select
           value={status}
           onChange={(e) => setStatus(e.target.value)}
@@ -286,11 +318,11 @@ const TableData = () => {
           <MenuItem value="">All Careers</MenuItem>
           {careers?.map((career) => (
             <MenuItem key={career._id} value={career._id}>
-              {career.name}
+              {career.title}
             </MenuItem>
           ))}
         </Select>
-      </Box>
+      </Box> */}
       {isLoading ? (
         <Typography fontSize={14} sx={{ paddingX: 5 }}>
           Loading...
@@ -305,7 +337,7 @@ const TableData = () => {
           onChange={handlePageChange}
         />
       </Box>
-    </>
+    </PageLayout>
   );
 };
 

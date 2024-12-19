@@ -23,6 +23,7 @@ import "assets/css/style.css";
 import AddCareers from "pages/Careers/AddCareers";
 import EditCareers from "pages/Careers/EditCareers";
 import Details from "pages/Applications/Details";
+import TableData from "pages/Applications/tableData";
 import Login from "pages/Auth";
 import AddBlog from "pages/Blogs/AddBlog";
 import EditBlog from "pages/Blogs/EditBlog";
@@ -106,6 +107,7 @@ export default function App() {
                 <Route path="/careers/addCareers" element={<AddCareers />} />
                 <Route path="/careers/editCareers/:id" element={<EditCareers />} />
                 <Route path="/applications/details//:id" element={<Details />} />
+                <Route path="/applications/tableData" element={<TableData />} />
                 <Route path="/blogs/addBlog" element={<AddBlog />} />
                 <Route path="/blogs/editBlog/:id" element={<EditBlog />} />
                 <Route path="*" element={<Navigate to="/contact" />} />
@@ -135,6 +137,7 @@ export default function App() {
               <Route path="/careers/addCareers" element={<AddCareers />} />
               <Route path="/careers/editCareers/:id" element={<EditCareers />} />
               <Route path="/applications/details/:id" element={<Details />} />
+              <Route path="/applications/tableData" element={<TableData />} />
               <Route path="/blogs/addBlog" element={<AddBlog />} />
               <Route path="/blogs/editBlog/:id" element={<EditBlog />} />
               <Route path="*" element={<Navigate to="/contact" />} />
