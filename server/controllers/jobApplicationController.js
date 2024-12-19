@@ -38,7 +38,7 @@ const submitJobApplication = async (req, res) => {
       highestQualification,
       contactNumber,
       whatsAppNumber,
-      cv: req.file.path, 
+      cv: req.file.filename, 
       careerId
     });
 
