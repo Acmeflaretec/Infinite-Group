@@ -1,5 +1,3 @@
-
-
 // /* eslint-disable react/prop-types */
 // import { useState } from 'react';
 // import Box from 'components/Box';
@@ -115,31 +113,46 @@
 
 // export default TableData;
 
-import { useState, useEffect } from 'react';
-import Box from 'components/Box';
-import { useNavigate } from 'react-router-dom';
-import Typography from 'components/Typography';
-import Table from 'examples/Tables/Table';
-import { Select, MenuItem, TextField, Button, Pagination, Icon } from '@mui/material';
-import { Link } from 'react-router-dom';
-import { useGetApplicants, useUpdateApplicantStatus, useDownloadAllCVs, useGetCareers } from 'queries/ApplicantQuery';
+import { useState, useEffect } from "react";
+import Box from "components/Box";
+import { useNavigate } from "react-router-dom";
+import Typography from "components/Typography";
+import Table from "examples/Tables/Table";
+import { Select, MenuItem, TextField, Button, Pagination, Icon } from "@mui/material";
+import { Link } from "react-router-dom";
+import {
+  useGetApplicants,
+  useUpdateApplicantStatus,
+  useDownloadAllCVs,
+  useGetCareers,
+} from "queries/ApplicantQuery";
+import JSZip from "jszip";
+import { saveAs } from "file-saver";
 
 const TableData = () => {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
-  const [sortBy, setSortBy] = useState('createdAt');
-  const [order, setOrder] = useState('desc');
-  const [search, setSearch] = useState('');
-  const [status, setStatus] = useState('');
-  const [careerId, setCareer] = useState('');
-  const [qualification, setQualification] = useState('');
+  const [sortBy, setSortBy] = useState("createdAt");
+  const [order, setOrder] = useState("desc");
+  const [search, setSearch] = useState("");
+  const [status, setStatus] = useState("");
+  const [careerId, setCareer] = useState("");
+  const [qualification, setQualification] = useState("");
 
-  const { data, isLoading } = useGetApplicants({ page, perPage, sortBy, order, search, status, careerId, qualification });
+  const { data, isLoading } = useGetApplicants({
+    page,
+    perPage,
+    sortBy,
+    order,
+    search,
+    status,
+    careerId,
+    qualification,
+  });
   const { mutate: updateApplicantStatus } = useUpdateApplicantStatus();
   const { mutate: downloadAllCVs } = useDownloadAllCVs();
   const { data: careers } = useGetCareers();
-
 
   const handleStatusChange = (applicationId, newStatus) => {
     updateApplicantStatus({ applicationId, newStatus });
@@ -149,20 +162,40 @@ const TableData = () => {
     setPage(value);
   };
 
-  const handleDownloadAllCVs = () => {
-    downloadAllCVs();
+  const handleDownloadAllCVs = async () => {
+    const zip = new JSZip();
+    try {
+      const filePromises = data?.docs.map(async (item, idx) => {
+        const doc_url = `${process.env.REACT_APP_API_URL}/uploads/${item?.cv}`;
+        const fileExtension = item?.cv?.split(".").pop() || "";
+        const doc_name = `${String(idx + 1).padStart(2, "0")}_${item?.firstName}.${fileExtension}`;
+        try {
+          const response = await fetch(doc_url);
+          const blob = await response.blob();
+          zip.file(doc_name, blob);
+        } catch (error) {
+          console.error("Error downloading file:", error);
+        }
+      });
+
+      await Promise.all(filePromises);
+      const content = await zip.generateAsync({ type: "blob" });
+      saveAs(content, "resume.zip");
+    } catch (error) {
+      console.error("Error generating zip file:", error);
+    }
   };
 
   const columns = [
-    { name: 'Applicant', align: 'left' },
-    { name: 'careers', align: 'left' },
-    { name: 'Qualification', align: 'center' },
-    { name: 'CreatedAt', align: 'center' },
-    { name: 'Status', align: 'center' },
-    { name: 'Action', align: 'center' },
+    { name: "Applicant", align: "left" },
+    { name: "careers", align: "left" },
+    { name: "Qualification", align: "center" },
+    { name: "CreatedAt", align: "center" },
+    { name: "Status", align: "center" },
+    { name: "Action", align: "center" },
   ];
 
-  const rows = data?.docs?.map(item => ({
+  const rows = data?.docs?.map((item) => ({
     Applicant: (
       <Link to={`/applications/details/${item?._id}`} state={{ item }}>
         <Box key={item?._id} display="flex" alignItems="center" px={1} py={0.5}>
@@ -176,11 +209,8 @@ const TableData = () => {
       </Link>
     ),
     Status: (
-      <Select
-        value={item?.status}
-        onChange={(e) => handleStatusChange(item._id, e.target.value)}
-      >
-        {['Pending', 'Reviewed', 'Shortlisted', 'Rejected', 'Hired'].map(status => (
+      <Select value={item?.status} onChange={(e) => handleStatusChange(item._id, e.target.value)}>
+        {["Pending", "Reviewed", "Shortlisted", "Rejected", "Hired"].map((status) => (
           <MenuItem key={status} value={status}>
             {status}
           </MenuItem>
@@ -241,7 +271,7 @@ const TableData = () => {
           size="small"
         >
           <MenuItem value="">All Status</MenuItem>
-          {['Pending', 'Reviewed', 'Shortlisted', 'Rejected', 'Hired'].map(status => (
+          {["Pending", "Reviewed", "Shortlisted", "Rejected", "Hired"].map((status) => (
             <MenuItem key={status} value={status}>
               {status}
             </MenuItem>
@@ -254,7 +284,7 @@ const TableData = () => {
           size="small"
         >
           <MenuItem value="">All Careers</MenuItem>
-          {careers?.map(career => (
+          {careers?.map((career) => (
             <MenuItem key={career._id} value={career._id}>
               {career.name}
             </MenuItem>
@@ -262,11 +292,13 @@ const TableData = () => {
         </Select>
       </Box>
       {isLoading ? (
-        <Typography fontSize={14} sx={{ paddingX: 5 }}>Loading...</Typography>
+        <Typography fontSize={14} sx={{ paddingX: 5 }}>
+          Loading...
+        </Typography>
       ) : (
         <Table columns={columns} rows={rows} />
       )}
-      <Box style={{ display: 'flex', justifyContent: 'center', margin: '10px' }}>
+      <Box style={{ display: "flex", justifyContent: "center", margin: "10px" }}>
         <Pagination
           count={Math.ceil((data?.totalDocs || 0) / perPage)}
           page={page}
