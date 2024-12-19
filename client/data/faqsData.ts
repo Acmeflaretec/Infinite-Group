@@ -22,7 +22,7 @@ export const faqsData: FaqItem[] = [
   {
     title: "Why should I choose Infinite Group over other companies?",
     content:
-      "Choosing Infinite Group means access to end-to-end solutions across multiple industries. As a connected group of companies, we offer seamless, tailored services in areas like consulting, IT, real estate, education, and more, ensuring your success at every step with a focus on quality and innovation.",
+      "Choosing Infinite Group means access to end-to-end solutions across multiple industries. As a connected group of companies, we offer seamless, tailored services in areas like Consulting, IT, Real Estate, Education, and more, ensuring your success at every step with a focus on quality and innovation.",
   },
   {
     title: "Where are your offices located?",

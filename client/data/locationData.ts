@@ -37,7 +37,7 @@ export const locationData: LocationData[] = [
     title: "Sri lanka",
     subtitle: "Sri Lanka",
     helpertext:
-      "68 D, Wettawa Kusala Galhenawatta, Raddelugama Siduwa, Srilanka - 11870",
+      "68 D, Wettawa Kusala Galhenawatta, Raddelugama Siduwa, Sri Lanka - 11870",
     icon: "globe.svg",
     cover: "srilanka.jpg",
     href: "/contact",

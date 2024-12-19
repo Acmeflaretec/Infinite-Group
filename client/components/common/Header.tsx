@@ -52,7 +52,7 @@ const Header: React.FC = () => {
         />
         <div className="text-xs flex flex-col justify-center">
           <h1 className="uppercase font-bold">Infinite Group of Companies</h1>
-          <p className="text-xs">UAE | QATAR | INDIA | SRILANKA</p>
+          <p className="text-xs">UAE | QATAR | INDIA | SRI LANKA</p>
         </div>
       </Link>
       <nav className="hidden lg:flex gap-4 font-semibold text-lg text-stone-500">

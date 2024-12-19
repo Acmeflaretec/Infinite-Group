@@ -27,7 +27,7 @@ const HeroSection: React.FC = () => {
             Infinite Group of Companies
           </h1>
           <p className="text-stone-500 text-xs lg:text-sm">
-            UAE | QATAR | INDIA | SRILANKA
+            UAE | QATAR | INDIA | SRI LANKA
           </p>
         </div>
         <p className="max-w-md text-sm md:text-base">

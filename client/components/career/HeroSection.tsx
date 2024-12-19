@@ -12,7 +12,7 @@ const HeroSection: React.FC = () => {
           Infinite Group of Companies
         </h1>
         <p className="text-stone-500 text-xs lg:text-sm">
-          UAE | QATAR | INDIA | SRILANKA
+          UAE | QATAR | INDIA | SRI LANKA
         </p>
       </div>
       <div className="relative h-full w-full md:w-2/3 order-1 md:order-2">

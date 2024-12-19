@@ -80,7 +80,7 @@ const ContactForm: React.FC = () => {
             value={formData.firstName}
             onChange={handleChange}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-            placeholder="Type your Firstname"
+            placeholder="Type your First name"
           />
           {errors.firstName && (
             <p className="text-red-500 text-sm">{errors.firstName}</p>
@@ -101,7 +101,7 @@ const ContactForm: React.FC = () => {
             value={formData.lastName}
             onChange={handleChange}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-            placeholder="Type your Lastname"
+            placeholder="Type your Last name"
           />
           {errors.lastName && (
             <p className="text-red-500 text-sm">{errors.lastName}</p>

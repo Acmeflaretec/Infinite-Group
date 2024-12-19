@@ -23,7 +23,7 @@ const ContactSection: React.FC = () => {
             <h1 className="font-bold text-base lg:text-xl">
               Infinite Group of Companies
             </h1>
-            <p className="text-xs lg:text-sm">UAE | QATAR | INDIA | SRILANKA</p>
+            <p className="text-xs lg:text-sm">UAE | QATAR | INDIA | SRI LANKA</p>
           </div>
           <p className="max-w-md text-sm md:text-base text-stone-200">
             Are you ready to take your business to the next level?

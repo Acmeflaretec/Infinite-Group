@@ -26,7 +26,7 @@ const About: React.FC = () => {
           <p className="max-w-md">
             At Infinite Group of Companies, we believe in infinite
             possibilities. With operations spanning across the UAE, Qatar, India
-            and Srilanka, we have established ourselves as a dynamic group of
+            and Sri Lanka, we have established ourselves as a dynamic group of
             companies involved in a wide array of industries. Our expertise
             spans multiple sectors, enabling us to deliver innovative solutions
             that cater to the ever-evolving needs of our clients.

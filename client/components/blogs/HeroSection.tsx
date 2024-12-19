@@ -40,7 +40,7 @@ const HeroSection: React.FC = () => {
     <div className="flex flex-col gap-16">
       <div className="flex flex-col justify-end xl:flex-row items-end min-h-screen pt-20">
         <img
-          className="absolute object-cover object-center w-full"
+          className="absolute object-cover object-center h-full w-full"
           src={imgSrc}
           alt="background cover image"
           onError={handleImageError}
@@ -50,8 +50,8 @@ const HeroSection: React.FC = () => {
             loading...
           </div>
         )}
-        <div className="absolute bg-opacity-40 z-1 bg-black w-full h-full" />
-        <div className="flex flex-col justify-center items-center gap-4 lg:gap-8 w-full p-4 md:py-8 pb-14 z-10 font-bricolage">
+        <div className="absolute bg-opacity-5 z-1 bg-black w-full h-full" />
+        <div className="flex bg-gradient-to-t from-black to-transparent flex-col justify-center items-center gap-4 lg:gap-8 w-full p-4 md:py-8 pb-14 z-10 font-bricolage">
           <div className="flex gap-2">
             <button className="backdrop-blur-lg py-2 bg-white bg-opacity-30 rounded-full px-8 text-lg uppercase">
               Blog

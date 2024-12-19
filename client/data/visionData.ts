@@ -9,14 +9,14 @@ export const visionData: VisionData[] = [
   {
     title: "About Us",
     description:
-      "Infinite Group of Companies is a diversified enterprise with a strong presence in the UAE, Qatar, India and Srilanka. Our company was founded with the vision of creating sustainable solutions and driving economic growth in the regions we operate.",
+      "Infinite Group of Companies is a diversified enterprise with a strong presence in the UAE, Qatar, India and Sri Lanka. Our company was founded with the vision of creating sustainable solutions and driving economic growth in the regions we operate.",
     cover: "dubai.png",
     href: "/",
   },
   {
     title: "Our Journey",
     description:
-      "Infinite Group of Companies started with a single vision: to offer world-class services across diverse industries. From our headquarters in the UAE, we have expanded to key markets in Qatar, India and Srilanka, continuously pursuing growth and excellence.",
+      "Infinite Group of Companies started with a single vision: to offer world-class services across diverse industries. From our headquarters in the UAE, we have expanded to key markets in Qatar, India and Sri Lanka, continuously pursuing growth and excellence.",
     cover: "journey.png",
     href: "/",
   },
