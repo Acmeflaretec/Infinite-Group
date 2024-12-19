@@ -39,13 +39,11 @@ const HeroSection: React.FC = () => {
   return (
     <div className="flex flex-col gap-16">
       <div className="flex flex-col justify-end xl:flex-row items-end min-h-screen pt-20">
-        <Image
-          className="object-cover"
+        <img
+          className="absolute object-cover object-center w-full"
           src={imgSrc}
           alt="background cover image"
           onError={handleImageError}
-          fill
-          priority
         />
         {loading && (
           <div className="absolute z-1 bg-black w-full h-full flex items-center justify-center text-white">
