@@ -37,8 +37,8 @@ const TableData = () => {
     { name: "Lastupdated", align: "center" },
     { name: "action", align: "center" },
   ]
-  const handleBannerChange = (blogId, isBanner) => {
-    updateBanner({ blogId, banner: isBanner });
+  const handleBannerChange = (blogId, isBanner) => {    
+    isBanner && updateBanner({ blogId, banner: isBanner });
   };
 
   const rows = data?.data?.map(item => ({
