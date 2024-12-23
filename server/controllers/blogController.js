@@ -25,8 +25,13 @@ const addBlog = async (req, res) => {
     if (!image) {
       return res.status(404).json({ message: 'Image not found' });
     }
-    const data = new Blog({ title, subtitle, url, image, description, status })
-    await data.save()
+    // const data = new Blog({ title, subtitle, url, image, description, status })
+    // await data.save()
+    const existingBanner = await Blog.findOne({ banner: true });
+    const banner = !existingBanner;
+
+    const data = new Blog({ title, subtitle, url, image, description, status, banner });
+    await data.save();
     res.status(201).json({ data, message: 'Blog created successfully' });
   } catch (error) {
     console.log(error);
