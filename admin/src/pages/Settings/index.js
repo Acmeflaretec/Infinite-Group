@@ -141,7 +141,7 @@ function Settings() {
             px={1.5}
           >
             &copy; {new Date().getFullYear()}, created by
-            <Link href={`#`} target="_blank">
+            <Link href={`https://www.infinite-grp.com`} target="_blank">
               <Typography variant="button" fontWeight="medium">
                 &nbsp;Infinite Group&nbsp;
               </Typography>
