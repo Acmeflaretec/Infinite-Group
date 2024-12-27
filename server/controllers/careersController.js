@@ -48,7 +48,43 @@ const getCareersById = async (req, res) => {
 };
 
 
-const addCareers = async (req, res) => { 
+// const addCareers = async (req, res) => { 
+//   try {
+//     const {
+//       title,
+//       location,
+//       type,
+//       linkedin_url,
+//       pay,
+//       summary,
+//       dutiesAndResponsibilities,
+//       workingConditions,
+//       jobRequirements,
+//     } = req?.body;
+
+//     const careers = new Careers({
+//       title,
+//       location,
+//       type,
+//       linkedin_url,
+//       pay,
+//       summary,
+//       dutiesAndResponsibilities,
+//       workingConditions,
+//       jobRequirements,
+//     });
+//     await careers.save();
+
+//     res.status(200).json({ message: "Career added successfully !" });
+//   } catch (error) {
+//     console.log(error.message);
+//     res
+//       .status(400)
+//       .json({ message: error?.message ?? "Something went wrong !" });
+//   }
+// };
+
+const addCareers = async (req, res) => {
   try {
     const {
       title,
@@ -60,7 +96,7 @@ const addCareers = async (req, res) => {
       dutiesAndResponsibilities,
       workingConditions,
       jobRequirements,
-    } = req?.body;
+    } = req.body;
 
     const careers = new Careers({
       title,
@@ -69,20 +105,20 @@ const addCareers = async (req, res) => {
       linkedin_url,
       pay,
       summary,
-      dutiesAndResponsibilities,
-      workingConditions,
-      jobRequirements,
+      dutiesAndResponsibilities: dutiesAndResponsibilities || [],
+      workingConditions: workingConditions || [],
+      jobRequirements: jobRequirements || [],
     });
+
     await careers.save();
 
-    res.status(200).json({ message: "Career added successfully !" });
+    res.status(200).json({ message: "Career added successfully!" });
   } catch (error) {
-    console.log(error.message);
-    res
-      .status(400)
-      .json({ message: error?.message ?? "Something went wrong !" });
+    console.error(error.message);
+    res.status(400).json({ message: error.message || "Something went wrong!" });
   }
 };
+
 
 
 const updateCareers = async (req, res) => { 
